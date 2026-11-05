@@ -1,0 +1,8 @@
+site_name: Syndicate Black Ops
+site_url: https://sbo.sbotnas.io/
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: green
+    accent: light green
