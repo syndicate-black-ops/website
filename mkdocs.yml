@@ -2,7 +2,17 @@ site_name: Syndicate Black Ops
 site_url: https://sbo.sbotnas.io/
 theme:
   name: material
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.svg
   palette:
     scheme: slate
     primary: green
     accent: light green
+plugins:
+  - search
+  - social:
+      cards_dir: assets/images/social-cards
+      cards_layout: sbo
+      cards_layout_options:
+        background_color: transparent
+        background_image: docs/assets/images/social/preview.png

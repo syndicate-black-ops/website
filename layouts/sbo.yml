@@ -1,0 +1,103 @@
+---
+# Social card layout: background image, title bar, SBO logo and page title.
+
+definitions:
+  - &background_image >-
+    {{ layout.background_image }}
+
+  - &page_target >-
+    {{ page.meta.get("title", page.title) }}
+
+tags:
+  og:type: website
+  og:title: >-
+    {{ page.meta.get("title", page.title) }}
+  og:description: >-
+    {{ page.meta.get("description", config.site_description) | x }}
+  og:image: "{{ image.url }}"
+  og:image:type: "{{ image.type }}"
+  og:image:width: "{{ image.width }}"
+  og:image:height: "{{ image.height }}"
+  og:url: "{{ page.canonical_url }}"
+  twitter:card: summary_large_image
+  twitter:title: >-
+    {{ page.meta.get("title", page.title) }}
+  twitter:description: >-
+    {{ page.meta.get("description", config.site_description) | x }}
+  twitter:image: "{{ image.url }}"
+
+size:
+  width: 1200
+  height: 630
+layers:
+  - background:
+      image: *background_image
+
+  - size:
+      width: 1200
+      height: 92
+    offset:
+      x: 0
+      y: 538
+    background:
+      image: docs/assets/images/social/title-gradient.png
+
+  - size:
+      width: 64
+      height: 64
+    offset:
+      x: 40
+      y: 552
+    background:
+      image: docs/assets/images/logo.png
+
+  - size:
+      width: 1072
+      height: 44
+    offset:
+      x: 66
+      y: 566
+    typography:
+      content: *page_target
+      align: end
+      color: "#020503dd"
+      line:
+        amount: 1
+        height: 1
+      font:
+        family: Roboto
+        style: Bold
+
+  - size:
+      width: 1072
+      height: 44
+    offset:
+      x: 62
+      y: 560
+    typography:
+      content: *page_target
+      align: end
+      color: "#63df7c88"
+      line:
+        amount: 1
+        height: 1
+      font:
+        family: Roboto
+        style: Bold
+
+  - size:
+      width: 1072
+      height: 44
+    offset:
+      x: 64
+      y: 562
+    typography:
+      content: *page_target
+      align: end
+      color: "#22783c"
+      line:
+        amount: 1
+        height: 1
+      font:
+        family: Roboto
+        style: Bold
