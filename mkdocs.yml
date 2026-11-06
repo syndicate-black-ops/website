@@ -1,5 +1,8 @@
 site_name: Syndicate Black Ops
 site_url: https://sbo.sbotnas.io/
+nav:
+  - Install: index.md
+  - Sprays: sprays.md
 theme:
   name: material
   logo: assets/images/logo.png
