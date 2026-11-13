@@ -4,7 +4,7 @@ title: Sprays
 
 # Animated sprays
 
-Syndicate Black Ops 2.0.0 plays animated sprays
+Syndicate Black Ops plays animated sprays
 
 Make one with the [SBO Spray Converter](https://syndicate-black-ops.github.io/spray-converter/): drop an image, GIF or WebP on the page and download `tempdecal.wad`
 

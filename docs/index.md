@@ -2,7 +2,7 @@
 title: Install
 ---
 
-# Install Syndicate Black Ops 2.0.0
+# Install Syndicate Black Ops 2.1.0
 
 ## You need
 
@@ -12,11 +12,11 @@ title: Install
 
 1. If you have the old version from 2004 (Syndicate 1.38), rename your existing `syndicate` folder to `syndicate_138`
 2. If you still have the playtest version from October 17, 2026, delete it. The first public release is a fresh install
-3. If you have a `syndicate_downloads` folder from 1.38, it will still work with 2.0.0, no need to delete it
+3. If you have a `syndicate_downloads` folder from 1.38, it will still work with 2.1.0, no need to delete it
 
 ## Install
 
-Download [sbo-v2.0.0.zip](https://github.com/syndicate-black-ops/syndicate-black-ops/releases/latest/download/sbo-v2.0.0.zip)
+Download [sbo-v2.1.0.zip](https://github.com/syndicate-black-ops/syndicate-black-ops/releases/latest/download/sbo-v2.1.0.zip)
 
 **Windows**
 
