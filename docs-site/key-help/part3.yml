@@ -1,0 +1,28 @@
+# Descriptions of key and flag rows without FGD help (scripts/gen_entity_docs.py). Read from the code on develop.
+game_player_settings:
+  keys:
+    argrenades: "Sets how many grenades for the Vindico Grenade Launcher (`weapon_glauncher`) to give the player, up to the most a player can carry. A negative number takes that many away."
+    hand_grenade: "Sets how many hand grenades to give the player, up to the most a player can carry. A negative number takes that many away."
+    satchel_charge: "Sets how many satchels to give the player, up to the most a player can carry. A negative number takes that many away."
+    trip_mine: "Sets how many mines to give the player, up to the most a player can carry. A negative number takes that many away."
+    snarks: "Sets how many Pitbulls (`weapon_snark`) to give the player, up to the most a player can carry. A negative number takes that many away."
+    k444m: "Sets how much ammo for `weapon_k444` to give the player, up to the most a player can carry. A negative number takes that much away."
+    benm: "Sets how much ammo for `weapon_ben` to give the player, up to the most a player can carry. A negative number takes that much away."
+    canonm: "Sets how much ammo for `weapon_canon` to give the player, up to the most a player can carry. A negative number takes that much away."
+    chainm: "Sets how much ammo for `weapon_chaingun` to give the player, up to the most a player can carry. A negative number takes that much away."
+    fa18m: "Sets how much ammo for `weapon_fa18` to give the player, up to the most a player can carry. A negative number takes that much away."
+    federalm: "Sets how much ammo for `weapon_federal` to give the player, up to the most a player can carry. A negative number takes that much away."
+    nm33m: "Sets how much ammo for `weapon_nm33` to give the player, up to the most a player can carry. A negative number takes that much away."
+    pm66m: "Sets how much ammo for `weapon_pm66` to give the player, up to the most a player can carry. A negative number takes that much away."
+    rc28m: "Sets how much ammo for `weapon_rc28` to give the player, up to the most a player can carry. A negative number takes that much away."
+    spam: "Sets how much ammo for `weapon_spa` to give the player, up to the most a player can carry. A negative number takes that much away."
+    swm: "Sets how much ammo for `weapon_sw` to give the player, up to the most a player can carry. A negative number takes that much away."
+monster_dark:
+  flags:
+    "32": "No effect in SBO."
+monster_hunter:
+  flags:
+    "32": "No effect in SBO."
+monster_werewolf:
+  flags:
+    "32": "No effect in SBO."

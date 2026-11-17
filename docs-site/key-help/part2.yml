@@ -1,0 +1,44 @@
+# Descriptions of key and flag rows without FGD help (scripts/gen_entity_docs.py). Read from the code on develop.
+func_button:
+  keys:
+    locked_sound_override: "Sets a sound file that plays instead of **Locked Sound** when a player uses the button while it is locked. If you leave this key empty, the button plays **Locked Sound**."
+    unlocked_sound_override: "Sets a sound file that plays instead of **Unlocked Sound** when the button is pressed. If you leave this key empty, the button plays **Unlocked Sound**."
+monster_alien_slave:
+  flags:
+    "32": "This Demon Slave leads the squad named by **Squad Name**. A named squad forms only around a leader."
+trigger_random:
+  keys:
+    target1: "One of the targets it picks from."
+    target2: "One of the targets it picks from."
+    target3: "One of the targets it picks from."
+    target4: "One of the targets it picks from."
+    target5: "One of the targets it picks from."
+    target6: "One of the targets it picks from."
+    target7: "One of the targets it picks from."
+    target8: "One of the targets it picks from."
+    target9: "One of the targets it picks from."
+    target10: "One of the targets it picks from."
+    target11: "One of the targets it picks from."
+    target12: "One of the targets it picks from."
+    target13: "One of the targets it picks from."
+    target14: "One of the targets it picks from."
+    target15: "One of the targets it picks from."
+    target16: "One of the targets it picks from."
+trigger_random_unique:
+  keys:
+    target1: "One of the targets it picks from."
+    target2: "One of the targets it picks from."
+    target3: "One of the targets it picks from."
+    target4: "One of the targets it picks from."
+    target5: "One of the targets it picks from."
+    target6: "One of the targets it picks from."
+    target7: "One of the targets it picks from."
+    target8: "One of the targets it picks from."
+    target9: "One of the targets it picks from."
+    target10: "One of the targets it picks from."
+    target11: "One of the targets it picks from."
+    target12: "One of the targets it picks from."
+    target13: "One of the targets it picks from."
+    target14: "One of the targets it picks from."
+    target15: "One of the targets it picks from."
+    target16: "One of the targets it picks from."

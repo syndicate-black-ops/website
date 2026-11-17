@@ -1,0 +1,880 @@
+# Key and flag texts of base classes, in the style of the rewritten entity pages (scripts/gen_entity_docs.py).
+# Read from the code on develop. A key's text may be a map: desc, choices (value: text), empty, items.
+Angles:
+  keys:
+    angles:
+      desc: "Sets the direction the entity faces, as three angles in degrees: the pitch, the yaw and the roll. A yaw of 0 faces east and 90 faces north, and a pitch of -90 faces straight up. You can also type any other angles"
+      choices:
+        "0 0 0": "Faces east"
+        "-90 0 0": "Faces straight up"
+        "90 0 0": "Faces straight down"
+        "0 90 0": "Faces north"
+        "0 180 0": "Faces west"
+        "0 -90 0": "Faces south"
+BaseTank:
+  keys:
+    player_weapon_volume:
+      desc: "Sets how loud the shots of a player at the controls are for monsters, and -1 makes them silent"
+      empty: "If you leave this key empty or set 0, the shots are loud, at 1000"
+    master:
+      desc: "Names a [master](../guide/masters-and-states.md#masters), and while the master is off, no player can take the controls. A gun with **Active** still fires, so use **Fire Master** to stop that"
+    firemaster:
+      desc: "Names a master, and the gun only fires while that master is on. It still aims and turns while the master is off"
+    yawrate:
+      desc: "Sets how fast the gun turns left and right, in degrees per second"
+      empty: "If you leave this key empty, it is 0 and the gun doesn't turn"
+    yawrange:
+      desc: "Sets how far the gun turns left and right from where it faces in the map, in degrees to each side"
+      empty: "If you leave this key empty, it is 0 and the gun can't turn"
+    yawtolerance:
+      desc: "Sets how far off its target the gun may point left or right and still fire by itself, in degrees"
+      empty: "If you leave this key empty, it is 0 and the gun never fires by itself, unless it has **Only Direct**"
+    pitchrate:
+      desc: "Sets how fast the gun turns up and down, in degrees per second"
+    pitchrange:
+      desc: "Sets how far the gun turns up and down from where it faces in the map, in degrees to each side"
+    pitchtolerance:
+      desc: "Sets how far off its target the gun may point up or down and still fire by itself, in degrees"
+      empty: "If you leave this key empty, it is 0 and the gun never fires by itself, unless it has **Only Direct**"
+    barrel:
+      desc: "Sets how far the end of the barrel is in front of the origin of the entity, in units. Shots, sprites and the aim start there"
+    barrely:
+      desc: "Sets how far the end of the barrel is to the right of the origin of the entity, in units. A negative value is to the left"
+    barrelz:
+      desc: "Sets how far the end of the barrel is above the origin of the entity, in units. A negative value is below it"
+    spritesmoke:
+      desc: "Sets a sprite that drifts up from the end of the barrel with each shot"
+    spriteflash:
+      desc: "Sets a muzzle flash sprite shown at the end of the barrel with each shot"
+    spritescale:
+      desc: "Sets the size of the smoke and flash sprites, where 1 is their own size"
+      empty: "If you leave this key empty or set 0, they have their own size"
+    rotatesound:
+      desc: "Sets a sound that plays while the gun turns"
+    firerate:
+      desc: "Sets how many shots the gun fires per second, and 0 means 1"
+    persistence:
+      desc: "Sets how many seconds the gun keeps firing after it loses sight of its target"
+      empty: "If you leave this key empty, it is 0 and the gun never fires by itself"
+    minrange:
+      desc: "Sets the distance, in units, below which the gun ignores targets"
+    maxrange:
+      desc: "Sets the distance, in units, beyond which the gun ignores targets. With 0, there is no limit when the gun attacks only players, and with another **Behavior/Classification**, 0 means 512"
+    bulletcount:
+      desc: "Sets how many shots the gun has, and 0 or less means no limit. When the gun is empty, it clicks instead of firing"
+    m_iclass:
+      desc: "Sets who a gun with **Active** shoots at. Monsters also see the gun as this class, as [Monster classes](../guide/monster-classes.md) shows"
+      choices:
+        "0": "The nearest player in view"
+        "4": "Players and monsters that the Feds hate, within **Maximum target range**"
+        "5": "Players and monsters that alien soldiers hate, within **Maximum target range**"
+        "11": "Players and monsters that the allies of players hate, within **Maximum target range**"
+    extra_barrels:
+      desc: "Names other guns, without **Active**, that turn with this one and fire when it fires"
+    m_iszlocusfire:
+      desc: "The gun fires this at each shot, and passes on a point at the end of the barrel as the [activator](../guide/entity-triggering.md#target-selectors)"
+    smokerendermode:
+      desc: "Sets how the smoke sprite at the barrel is drawn each time the gun fires"
+      choices:
+        "0": "Solid"
+  flags:
+    "1": "The gun starts switched on, so it aims at targets and fires by itself. Triggering it switches it on or off"
+    "16": "The gun only fires when a line from its barrel hits the target, and then it fires even when its aim is outside the tolerances"
+    "32": "Players can take the controls of the gun through a func_tankcontrols, and it aims where they look"
+    "64": "A red laser dot shows where the barrel points while the gun is on or a player has the controls"
+    "128": "A player at the controls aims the gun at the exact point they look at, instead of the gun copying their view angles"
+    "256": "A puff of smoke comes out of the barrel when the gun fires its last bullet, with a **Bullet count** set"
+BeamStartEnd:
+  keys:
+    lightningstart:
+      desc: "Names the entity the beam starts at. If several entities have this name, each strike picks one of them at random. Without an **Ending Entity**, the beam strikes from this entity to a random spot within **Radius**"
+    lightningend:
+      desc: "Names the entity the beam ends at. If several entities have this name, each strike picks one of them at random"
+      empty: "If you leave this key empty, the beam strikes from the **Start Entity** to a random spot within **Radius**"
+Colormap:
+  keys:
+    colormap:
+      desc: "Colors the parts of the model that a player model colors with the player's chosen top and bottom colors. A model without such parts doesn't change"
+Breakable:
+  keys:
+    health:
+      desc: "Sets how much damage it takes before it breaks. Melee hits deal double damage to it. On a func_pushable, it only matters with the flag **Breakable**"
+      empty: "If you leave this key empty or set 0, the first hit breaks it"
+    material:
+      desc: "Sets what it is made of. This sets the sounds when it is hit and when it breaks, the gibs it breaks into and the marks that hits leave"
+      choices:
+        "0": "Glass"
+        "1": "Wood"
+        "2": "Metal"
+        "3": "Flesh"
+        "4": "Cinder block"
+        "5": "Ceiling tiles"
+        "6": "A computer, which throws sparks when it is hit"
+        "7": "Glass that never breaks"
+        "8": "Rocks"
+    explosion:
+      desc: "Sets which way the gibs fly when it breaks"
+      choices:
+        "0": "In random directions"
+        "1": "Away from the hit that broke it"
+    delay:
+      desc: "Sets how many seconds pass after it breaks before it fires its **Target**. With the flag **Pressure**, it is also how long it holds after a player steps on it, at least 0.1 seconds"
+    gibmodel:
+      desc: "Sets a model for the broken pieces, used instead of the normal gibs of its **Material type**"
+    spawnobject:
+      desc: "Sets an object that appears where it breaks. You can also type the class name of an item, a weapon or ammo that starts with `item_`, `weapon_` or `ammo_`, such as `weapon_k444` or `item_battery`. With any other class name, such as a monster's, nothing appears. With `developer 1` set in the console, the console then shows an error when the map starts. You can't change this key while the map runs"
+      choices:
+        "0": "Nothing appears"
+        "1": "A battery"
+        "14": "A Nuclear RPG"
+        "15": "RPG ammo"
+        "17": "A hand grenade"
+        "18": "A mine"
+        "19": "A satchel charge"
+        "20": "Pitbulls"
+    explodemagnitude:
+      desc: "Makes it explode when it breaks, with this much damage and a fireball to match. The blast reaches 2.5 times this value in units, and 0 means no explosion"
+    m_igibs:
+      desc: "Sets how many gibs it breaks into, up to 255. With 0, the game decides, and with -1, it breaks into no gibs"
+    gibscale:
+      desc: "Sets the size of the gibs, so 0.5 is half and 2 is double"
+      empty: "If you leave this key empty or set 0, the gibs have their normal size"
+    whenhit:
+      desc: "The entity fires this at each hit, and passes on a point at the spot of the hit as the [activator](../guide/entity-triggering.md#target-selectors). That point moves in the direction of the hit, so a [locus vector](../guide/locus.md) key can read the direction"
+    target_activator:
+      desc: "Sets the [activator](../guide/entity-triggering.md#target-selectors) that the **Target** gets when it breaks"
+      choices:
+        "0": "No activator"
+        "1": "The breakable itself"
+        "2": "The player or monster that broke it"
+    spark_when_hit:
+      desc: "Sets whether it throws sparks when it is hit"
+      choices:
+        "0": "Only the Computer material throws sparks"
+        "1": "It sometimes throws sparks and plays a spark sound when a shot, a melee attack or a beam hits it"
+    switch_texture_when_damaged:
+      desc: "Sets whether its look changes when it is damaged"
+      choices:
+        "0": "It keeps its texture"
+        "1": "It shows its alternate texture, the `+a` frame, once it has half of its **Strength** or less"
+  flags:
+    "1": "Only a trigger breaks it, so damage does nothing, and monster melee attacks don't lower its health either"
+    "256": "A melee hit of a player breaks it at once, even when its **Strength** is high. This flag is set by default"
+    "512": "Only explosions and grenades hurt it, so bullets and melee hits do nothing"
+ColorCorrection:
+  keys:
+    startdisabled:
+      desc: "Sets whether the look is on when the map starts. A trigger turns it on or off by its [use type](../guide/trigger-modes.md): On turns it on, Off turns it off and Toggle switches it"
+      choices:
+        "0": "The look is on from the start"
+        "1": "The look is off until you trigger it"
+    filename:
+      desc: "Names a color lookup table file that changes the colors of the view. It must be a `.raw` file in the Source format (32 by 32 by 32), which you can make with the [in-game editor](../features/color-correction.md#making-a-look-in-the-game). A name without a folder, such as `tealorange.raw`, is looked for in `gfx/colorcorrection/`, and players download the file with the map. The game applies the simple keys below after the file, and you can't change the file while the map runs"
+    maxweight:
+      desc: "Sets how strong the look is at full strength, from 0 for no change up to 1 for the full look. So 0.5 is halfway between the normal picture and the look"
+    exclusive:
+      desc: "Sets whether this look pushes the other color corrections back while it is on"
+      choices:
+        "0": "The look mixes with the others"
+        "1": "The look takes its share from every other color correction, so the others fade under it"
+    saturation:
+      desc: "Sets how strong the colors are: 1 is normal, 0 is black and white, and a value above 1 makes the colors stronger"
+    contrast:
+      desc: "Sets the contrast, where 1 is normal. A value above 1 makes dark parts darker and bright parts brighter, and a value below 1 makes the picture flatter"
+    brightness:
+      desc: "Adds this much to every color: 0 is normal, 0.1 makes the picture brighter and -0.1 makes it darker"
+    gamma:
+      desc: "Changes the middle tones: 1 is normal, a value above 1 makes them brighter and a value below 1 makes them darker"
+    tintcolor:
+      desc: "Sets a color the picture is multiplied by, as strongly as **Tint Amount** says, so `255 200 140` gives sepia"
+    tintamount:
+      desc: "Sets how strong the tint is, from 0 for no tint up to 1 for the full **Tint Color**"
+Door:
+  keys:
+    speed:
+      desc: "Sets how fast the door moves, in units per second, or in degrees per second for a door that turns. 0 means 100"
+    wait:
+      desc: "Sets how many seconds the door stays open before it closes, and -1 keeps it open"
+      empty: "If you leave this key empty or set 0, the door closes as soon as it is open"
+    dmg:
+      desc: "Sets how much damage the door deals to anything that blocks it, each time it is blocked"
+    netname:
+      desc: "The door fires this when it is closed"
+    m_iobeytriggermode:
+      desc: "Sets how the door reacts to the [use type](../guide/trigger-modes.md) of a trigger"
+      choices:
+        "0": "Every trigger opens or closes the door while it stands still, as in Half-Life"
+        "1": "On opens it, Off closes it and Toggle opens or closes it, and a trigger while the door moves does nothing"
+        "2": "Like \"Yes\", and also while it moves: On turns a closing door back, Off closes an opening door and Toggle does either. An opening door only closes with the flag **Toggle**, and without it, the door keeps opening"
+    fireonstart:
+      desc: "The door fires this each time it starts to move, either way"
+    fireonstart_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the targets of **Fire On Start** get"
+    fireonstop:
+      desc: "The door fires this each time it stops, at either end"
+    fireonstop_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the targets of **Fire On Stop** get"
+    fireonopening:
+      desc: "The door fires this when it starts to open"
+    fireonopening_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the targets of **Fire On Open Start** get"
+    fireonclosing:
+      desc: "The door fires this when it starts to close"
+    fireonclosing_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the targets of **Fire On Close Start** get"
+    fireonopened:
+      desc: "The door fires this when it is open"
+    fireonopened_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the targets of **Fire On Open End** get"
+    fireonclosed:
+      desc: "The door fires this when it is closed"
+    fireonclosed_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the targets of **Fire On Close End** get"
+    return_speed:
+      desc: "Sets how fast the door moves when it closes again"
+      empty: "If you leave this key empty or set 0, it moves back at its **Speed**"
+    directuse:
+      desc: "With **Use Only**, sets how a player must look at the door to use it"
+      choices:
+        "0": "As for any object"
+        "1": "The player must look straight at the door"
+        "2": "The player can't use the door through a wall"
+    locked_play_on_use:
+      desc: "Sets whether the door plays its locked sound when a trigger uses it while its master keeps it locked"
+      choices:
+        "0": "It plays no sound"
+        "1": "It plays the locked sound"
+  flags:
+    "1": "The door starts open, and closing moves it to where it is placed in the editor"
+    "8": "Players and monsters pass through the door"
+    "32": "The door stays open until it is triggered again, which closes it"
+    "256": "Players open the door with their use key, not by touching it"
+    "512": "Monsters can't open the door"
+DoorSounds:
+  keys:
+    movesnd:
+      desc: "Sets the sound the door plays while it moves, and **Custom move sound** replaces it"
+    stopsnd:
+      desc: "Sets the sound the door plays when it reaches the end of its move, and **Custom stop sound** replaces it"
+    soundradius:
+      desc: "Sets how far the sounds of the door carry"
+      choices:
+        "-2": "Up to about 500 units away"
+        "-1": "Up to about 800 units away"
+        "0": "Up to about 1250 units away"
+        "1": "Up to about 2000 units away"
+        "2": "Up to about 4000 units away"
+        "3": "Anywhere on the map, at full volume"
+    noise1:
+      desc: "Sets a sound file the door plays while it moves, instead of **Move Sound**"
+    noise2:
+      desc: "Sets a sound file the door plays when it stops, instead of **Stop Sound**"
+    noise3:
+      desc: "Sets a sound file the door plays when it stops on its way back"
+    returnstopsnd:
+      desc: "Sets the sound the door plays when it gets back to where it started, and **Custom stop sound on the way back** replaces it"
+      choices:
+        "0": "The **Stop Sound** plays there too"
+        "255": "No sound"
+DoorHealth:
+  keys:
+    healthvalue:
+      desc: "Sets how much health a player gets each time they open the door, up to their maximum health, and 0 gives none"
+DoorBlockers:
+  keys:
+    ignore_corpses:
+      desc: "Sets whether dead bodies block the door"
+      choices:
+        "0": "Dead bodies block it like anything else"
+        "1": "The door moves through dead bodies"
+    instant_gib_corpses:
+      desc: "Sets what happens to a dead body that blocks the door"
+      choices:
+        "0": "It blocks the door"
+        "1": "It breaks into gibs at once"
+    blocker_recheck:
+      desc: "Sets what the door does when its damage kills the thing that blocks it"
+      choices:
+        "0": "The door goes back"
+        "1": "The door keeps moving"
+        "2": "The door goes back"
+DoorLip:
+  keys:
+    lip:
+      desc: "Sets how many units of the door stay in the opening when it is open, because the door moves its own length minus this value. A negative value moves it farther than its length"
+EntityEffects:
+  keys:
+    effects:
+      desc: "Sets an engine effect for the model"
+      choices:
+        "0": "No effect"
+        "16": "The model takes its light from the ceiling above it, where normally it takes it from the floor below it"
+LockedSounds:
+  keys:
+    locked_sound:
+      desc: "Sets the sound the entity plays when a player tries to use it while its **Master** locks it. A door also plays it when a player touches it and it only opens when triggered"
+    unlocked_sound:
+      desc: "Sets the sound the entity plays when it is used while it isn't locked. A button plays it when it is pressed, and a door when it starts to open"
+    locked_sentence:
+      desc: "Sets an announcer sentence group the entity speaks when a player tries to use it while it is locked. Each try plays the next sentence of the group, at most one every few seconds"
+    unlocked_sentence:
+      desc: "Sets an announcer sentence group the entity speaks when it is used while it isn't locked. Each use plays the next sentence of the group"
+    locked_sound_override:
+      desc: "Sets a sound file played instead of **Locked Sound**, and only that file is loaded"
+      empty: "If you leave this key empty, the entity plays **Locked Sound**"
+    unlocked_sound_override:
+      desc: "Sets a sound file played instead of **Unlocked Sound**, and only that file is loaded"
+      empty: "If you leave this key empty, the entity plays **Unlocked Sound**"
+    locked_sentence_override:
+      desc: "Sets the name of a sentence group of [`sound/sentences.txt`](https://twhl.info/wiki/page/Sentences.txt), such as `NA`, which the entity speaks instead of **Locked Sentence**"
+      empty: "If you leave this key empty, the entity speaks **Locked Sentence**"
+    unlocked_sentence_override:
+      desc: "Sets the name of a sentence group of [`sound/sentences.txt`](https://twhl.info/wiki/page/Sentences.txt), such as `EA`, which the entity speaks instead of **Unlocked Sentence**"
+      empty: "If you leave this key empty, the entity speaks **Unlocked Sentence**"
+GibshooterBase:
+  keys:
+    m_igibs:
+      desc: "Sets how many gibs it shoots each time you trigger it, one every **Delay between shots**"
+      empty: "If you leave this key empty, it is 0 and the entity shoots one gib"
+    delay:
+      desc: "Sets how many seconds pass between two gibs, and 0 means 0.1 seconds"
+    m_flvelocity:
+      desc: "Sets the speed of the gibs, in units per second, as a [locus number](../guide/locus.md). It can be a number such as `200`, a range such as `100..300` for a random speed, or the name of a `calc_` entity. With **Direction and speed** set and this key empty, the length of that vector is the speed"
+      empty: "If you leave this key empty, it is 0 and the gibs just drop, unless **Direction and speed** is set"
+    m_iszposition:
+      desc: "Sets where the gibs appear, as a [locus position](../guide/locus.md). It can be a point such as `0 0 64`, the name of an entity, or `!activator` for the entity that started the chain of triggers"
+      empty: "If you leave this key empty, the gibs appear at the entity itself"
+    m_iszvelocity:
+      desc: "Sets the direction the gibs fly in, as a [locus vector](../guide/locus.md). Its length times **Gib Velocity** is their speed"
+      empty: "If you leave this key empty, the gibs fly in the direction of **Pitch Yaw Roll**"
+    m_flvariance:
+      desc: "Sets how far each gib strays from the direction, from 0 for straight up to about 1 for a wide spread"
+      empty: "If you leave this key empty, it is 0 and all gibs fly the same way"
+    m_flgiblife:
+      desc: "Sets how many seconds the gibs last before they fade out"
+      empty: "If you leave this key empty or set 0, they last 25 seconds"
+    m_iszspawntarget:
+      desc: "The entity fires this for each gib or shot it makes, and passes on that gib or shot as the [activator](../guide/entity-triggering.md#target-selectors)"
+  flags:
+    "1": "The entity stays after it has shot all its gibs, so you can trigger it again. Without this flag, it is removed after the last gib"
+    "8": "The first gib flies at the moment you trigger the entity, where normally it flies a moment later"
+ItemPickupFlags:
+  flags:
+    "128": "Players pick the item up by walking into it, the normal way. If you set **USE only** too, this flag wins"
+    "256": "Players must press their use key on the item to pick it up, and walking into it does nothing"
+Light:
+  keys:
+    _light:
+      desc: "Sets the color and the brightness of the light as `R G B brightness`, which the map compiler reads"
+    style:
+      desc: "Sets a pattern for how the brightness of the light changes over time, and the map compiler bakes it into the map. A light with a **Name** ignores it, because that light gets its own pattern that you can switch: **Custom Appearance**, or steady light"
+    pattern:
+      desc: "For a light with a **Name**, sets its own pattern of brightness instead of **Appearance**. The pattern is letters from `a` for dark through `m` for normal up to `z` for double brightness, played at 10 letters a second"
+      empty: "If you leave this key empty, the light is steady"
+    zhlt_stylecoring:
+      desc: "A key for the map compiler, for a light with a **Name** or an **Appearance**. The compiler leaves the light of this style out of the map where it is dimmer than this value. ZHLT doesn't read it"
+      empty: "If you leave this key empty, the compiler uses its own default"
+LightSpot:
+  keys:
+    _cone:
+      desc: "A key for the map compiler. It sets the angle in degrees from the center line of the spot light, and inside this angle the light is at full brightness"
+    _cone2:
+      desc: "A key for the map compiler. It sets the angle in degrees from the center line, and outside this angle the spot light gives no light. Between **Inner (bright) angle** and this angle, the light fades out"
+    pitch:
+      desc: "Sets the up and down angle of the spot light in degrees, and the map compiler reads it. -90 points straight down, 90 straight up and 0 level along its yaw"
+    _sky:
+      desc: "A key for the map compiler that sets whether the spot light acts as sunlight"
+      choices:
+        "0": "A normal spot light"
+        "1": "Sunlight, which shines from the sky faces in the direction of the spot, as from a light_environment"
+LightOrigin:
+  keys:
+    lightorigin:
+      desc: "Names an [`info_light_origin`](info_light_origin.md), and the model is lit as if it stood there"
+      empty: "If you leave this key empty, the model is lit by the floor under it"
+CustomObjectHint:
+  keys:
+    objecthint:
+      desc: "Shows brackets around the object for players near it. Within **Hint Distance**, the brackets are faint and in the HUD color. When the player is close enough to use the object and looks at it, the brackets take the color of the choice"
+      choices:
+        "": "No brackets"
+        button: "Yellow, and orange while a master locks the object"
+        charger: "Green, and red while the charger is empty"
+        eyescanner: "Yellow"
+        pickup: "Yellow"
+    objecthint_distance:
+      desc: "Sets how far from the player's eyes the faint brackets show, in units, up to 4096. The object must be in front of the player and in sight"
+      empty: "If you leave this key empty or set 0, the distance is 512 units"
+MomentaryDoor:
+  keys:
+    lip:
+      desc: "Sets how many units short of the full move the door stops. The door moves its own size in its move direction minus this many units"
+    movesnd:
+      desc: "Sets the sound the door plays while it moves"
+    stopsnd:
+      desc: "Sets the sound the door plays when it stops"
+    noise1:
+      desc: "Sets a sound file that plays while the door moves, and if you set one, the door ignores **Move Sound**"
+    noise2:
+      desc: "Sets a sound file that plays when the door stops, and if you set one, the door ignores **Stop Sound**"
+    fireonstart:
+      desc: "Fires when the door starts moving the other way than its last move, and on its first opening move"
+    fireonstart_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the **Fire On Start** targets get"
+    fireonstop:
+      desc: "Fires each time the door stops, wherever it is"
+    fireonstop_triggerstate:
+      desc: "Sets the use type that the **Fire On Stop** targets get"
+    fireonopening:
+      desc: "Fires when the door starts opening after a closing move, and on its first opening move"
+    fireonopening_triggerstate:
+      desc: "Sets the use type that the **Fire On Open Start** targets get"
+    fireonclosing:
+      desc: "Fires when the door starts closing after an opening move"
+    fireonclosing_triggerstate:
+      desc: "Sets the use type that the **Fire On Close Start** targets get"
+    fireonopened:
+      desc: "Fires when the door stops fully open"
+    fireonopened_triggerstate:
+      desc: "Sets the use type that the **Fire On Open End** targets get"
+    fireonclosed:
+      desc: "Fires when the door stops fully closed"
+    fireonclosed_triggerstate:
+      desc: "Sets the use type that the **Fire On Close End** targets get"
+    soundradius:
+      desc: "Sets how far away players hear the door's move and stop sounds"
+      choices:
+        "-2": "Up to about 500 units away"
+        "-1": "Up to about 800 units away"
+        "0": "Up to about 1250 units away"
+        "1": "Up to about 2000 units away"
+        "2": "Up to about 4000 units away"
+        "3": "Anywhere on the map, at full volume"
+Monster:
+  keys:
+    target:
+      desc: "On a monster, **Target** names the [`path_corner`](path_corner.md) the monster walks to first, and the monster then follows the path. A monster that has a **Name** waits where it is until you trigger it"
+MonsterCore:
+  keys:
+    trigger_on_death:
+      desc: "Fires once when the monster is killed, with the killer as the activator"
+    classify:
+      desc: "Sets the class of the monster, which decides who it fights and who fights it, as [Monster classes](../guide/monster-classes.md) shows. A [`monster_osprey`](monster_osprey.md) gives its own **Classification** to the Feds it drops"
+      choices:
+        "-1": "It is on nobody's side, so nobody fights it and it fights nobody"
+        "0": "It keeps its own side"
+      empty: "If you leave this key empty, the monster keeps its own side"
+    is_player_ally:
+      desc: "Sets whether the monster changes sides, as [Monster classes](../guide/monster-classes.md) explains. Enemies of the players become their allies, allies become enemies, and the Feds of an Osprey change sides with it. If you also set a **Classification**, that decides its side instead. A Cop only follows a player on the use key if it is an ally and its **Followage policy** is Regular"
+    field_of_view:
+      desc: "Sets how wide the monster sees, from Full, which sees all around, to Ultra narrow. Hunters, the Cyborg and the Cyber Minotaur ignore it, because they see everything within 12000 units, even through walls"
+      empty: "If you leave this key empty or set 0, the monster keeps its own field of view"
+    prisonerto:
+      desc: "Names a class, and the monster and the monsters of that class ignore each other, so they never fight. The classes are on the [Monster classes](../guide/monster-classes.md) page"
+    ignoredby:
+      desc: "Names a class whose monsters ignore the monster. The monster still sees them and can attack them. The classes are on the [Monster classes](../guide/monster-classes.md) page"
+MonsterTriggers:
+  keys:
+    triggertarget:
+      desc: "Names the entities that fire once, the first time **Trigger Condition** or **Trigger Alternative Condition** happens, with the monster itself as the activator"
+    triggercondition:
+      desc: "Sets the event that fires **TriggerTarget**"
+      choices:
+        "0": "Nothing fires"
+        "1": "The monster sees a player that it is angry at"
+        "2": "The monster takes damage"
+        "3": "The monster's health drops to half or less"
+        "4": "The monster dies"
+        "7": "The monster hears a sound of the world, such as a door"
+        "8": "The monster hears a player"
+        "9": "The monster hears a fight, such as gunfire or an explosion"
+        "10": "The monster sees a player, whether it is angry at them or not"
+        "11": "The monster sees a player while it isn't fighting"
+        "12": "A player provokes the monster, for example by hitting it"
+        "13": "Someone heals the monster"
+    triggeraltcondition:
+      desc: "Sets a second event that fires **TriggerTarget**. The first of the two events to happen fires it, and only once"
+MonsterFlags:
+  flags:
+    "1": "The monster ignores a player until that player looks toward it"
+    "16": "The monster sees nobody and no monster sees it, so it attacks no one and other monsters leave it alone. Players can still hurt it"
+MonsterClip:
+  flags:
+    "4": "[`func_monsterclip`](func_monsterclip.md) brushes block the monster"
+MonsterGag:
+  flags:
+    "2": "The monster makes no idle sounds and doesn't chat"
+MonsterFadeCorpse:
+  flags:
+    "512": "The monster's corpse fades out after it dies, instead of staying"
+MonsterNonSolidCorpse:
+  flags:
+    "65536": "The monster's corpse isn't solid, so players, monsters, doors and shots pass through it"
+MonsterActOutOfPVS:
+  flags:
+    "1048576": "The monster looks, listens and acts even when no player is near it. Without this flag, a monster with no player near waits idle, but hunters, the Cyborg and the Cyber Minotaur always act"
+MonsterRoam:
+  keys:
+    freeroam:
+      desc: "Sets whether the monster walks around from node to node while it is idle, which needs [`info_node`](info_node.md) entities in the map"
+      choices:
+        "0": "The [`worldspawn`](worldspawn.md) key **Monsters freeroam** decides"
+        "1": "The monster never walks around by itself"
+        "2": "The monster always walks around while it is idle"
+    active_alert:
+      desc: "Sets what the monster does after a fight, which needs [`info_node`](info_node.md) entities in the map"
+      choices:
+        "0": "The monster stands still after a fight"
+        "1": "The monster stands still after a fight"
+        "2": "The monster goes to gunfire it hears and walks around once, instead of standing still"
+MonsterSound:
+  keys:
+    soundmask:
+      desc: "Sets which sounds the monster reacts to"
+      choices:
+        "-1": "The monster is deaf"
+        "0": "The monster reacts to the sounds it normally does"
+        "1028": "The monster reacts to its normal sounds, but not to players"
+      empty: "If you leave this key empty, the monster reacts to the sounds it normally does"
+MonsterUnkillable:
+  keys:
+    unkillable:
+      desc: "Sets whether damage can kill the monster. A [`trigger_changevalue`](trigger_changevalue.md) can change it while the map runs"
+      choices:
+        "0": "The monster dies as usual"
+        "1": "Damage never takes the monster below 1 health, so it can't die"
+MonsterBody:
+  keys:
+    bloodcolor:
+      desc: "Sets the color of the monster's blood, its blood decals and its gibs"
+      choices:
+        "-1": "The monster doesn't bleed"
+        "0": "The monster's own blood color"
+    gibmodel:
+      desc: "Sets a model for the gibs of the monster. When the monster is gibbed, it throws 4 gibs of this model, each with a random submodel"
+      empty: "If you leave this key empty, the monster throws its normal gibs"
+    gib_policy:
+      desc: "Sets whether a kill gibs the monster. A kill that always gibs or never gibs, such as a crush, still decides by itself"
+      choices:
+        "0": "The monster gibs when the kill takes its health far below 0"
+        "1": "The monster gibs on every kill that doesn't forbid it"
+        "2": "The monster only gibs on a kill that always gibs"
+TalkMonster:
+  keys:
+    usesentence:
+      desc: "Sets the sentence group the monster says when it starts following a player"
+      empty: "If you leave this key empty, it says its own group, which is `SC_OK` for a Scientist and `BA_OK` for a Cop"
+    unusesentence:
+      desc: "Sets the sentence group the monster says when it stops following a player"
+      empty: "If you leave this key empty, it says its own group, which is `SC_WAIT` for a Scientist and `BA_WAIT` for a Cop"
+    voicepitch:
+      desc: "Sets the pitch of the monster's voice. 100 is the normal pitch, a higher value is higher and a lower value is deeper"
+      empty: "If you leave this key empty or set 0, the monster keeps its own voice pitch"
+    followage_policy:
+      desc: "Sets who can make the monster follow a player. A Cop only ever follows a player if it is an ally"
+      choices:
+        "0": "The monster follows a player who presses the use key on it, and an ally Cop does too"
+        "1": "Only a [`scripted_following`](scripted_following.md) can make the monster follow someone"
+        "2": "Only a `scripted_following` can make the monster follow someone, and it says its **Refusal Sentence** when a player presses the use key on it"
+      empty: "If you leave this key empty, Scientists follow a player who presses the use key on them, and Cops never follow"
+    followfailpolicy:
+      desc: "Sets what the monster does when it can't reach the player it follows. With a **Followage policy** of \"Scripted only\" or \"Scripted only, decline use\", the choice \"Stop following\" works like \"Keep trying\""
+      choices:
+        "0": "Scientists stop following, and other monsters keep trying"
+        "1": "The monster keeps trying to reach the player"
+        "2": "The monster stops following"
+        "3": "The monster runs to the reachable spot nearest the player"
+    suspicious:
+      desc: "Sets whether the monster dislikes players from the start"
+      choices:
+        "0": "The monster has its normal attitude to players"
+        "1": "The monster dislikes players from the start"
+    tolerance:
+      desc: "Sets how many hits from a player make the monster hostile to them"
+      choices:
+        "0": "A Cop has a Low tolerance and a Scientist has none"
+        "1": "Any hit makes it hostile"
+        "2": "A direct hit, or a second hit of any kind, makes it hostile"
+        "3": "The third hit makes it hostile"
+        "4": "The fourth hit makes it hostile, if each hit comes within 4 seconds of the one before"
+        "5": "Hits never make it hostile"
+        "6": "Hits never make it hostile, and its friends don't turn hostile when it dies"
+    alert_friends:
+      desc: "Sets whether killing the monster makes its friends who see it hostile to the killer"
+      choices:
+        "0": "Its friends always turn hostile"
+        "1": "Its friends always turn hostile"
+        "2": "Its friends only turn hostile if the monster wasn't fighting"
+        "3": "Its friends never turn hostile"
+    refusalsentence:
+      desc: "Sets the sentence group the monster says when it refuses to follow a player. `null` makes it say nothing"
+    speakas:
+      desc: "Makes the monster speak the lines of another voice, such as `BA` for a Cop or `SC` for a Scientist. Lines that the voice doesn't have stay silent"
+  flags:
+    "256": "A Scientist or a Cop refuses to follow a player who presses the use key on it. A Scientist uses its talk from before the disaster, and a Cop says almost nothing while idle"
+    "524288": "A player who walks into the monster doesn't make it step aside"
+Targetname:
+  keys:
+    targetname:
+      desc: "Names the entity, so other entities can trigger it, target it or read it by this name. Several entities can share one name"
+Target:
+  keys:
+    target:
+      desc: "Names the entities this entity triggers. A name that ends in `*`, such as `room1_*`, triggers every other entity whose name starts that way. `!activator` triggers the entity that started the chain of triggers, as [Entity triggering](../guide/entity-triggering.md) explains"
+Targetx:
+  keys:
+    delay:
+      desc: "Sets how many seconds the entity waits after it is triggered before it fires its targets"
+    killtarget:
+      desc: "Names the entities this entity removes from the map when it fires. A name that ends in `*` removes every other entity whose name starts that way. `!activator` removes the entity that started the chain, and `!caller` removes this entity itself. It never removes a player"
+Master:
+  keys:
+    master:
+      desc: "Names a [master](../guide/masters-and-states.md), such as a [`multisource`](multisource.md) or an [`env_state`](env_state.md). While the master is off, this entity is locked and does nothing. A `~` in front of the name turns the master around"
+RenderFxChoices:
+  keys:
+    renderfx:
+      desc: "Sets an effect that the engine adds to how the entity is drawn. Most of them change how visible it is over time, and Glow Shell (19) draws a shell in the **FX Color** around a model"
+RenderFields:
+  keys:
+    rendermode:
+      desc: "Sets how the engine draws the entity. Every mode except Normal uses **FX Amount** for how visible it is"
+      choices:
+        "0": "The entity is drawn as it is, and **FX Amount** has no effect"
+        "1": "The entity is drawn in the **FX Color**"
+        "2": "The entity is see-through, as much as **FX Amount** says"
+        "3": "A sprite glows and stays the same size on the screen at any distance"
+        "4": "The blue parts of a `{` texture are cut out, and **FX Amount** sets how visible the rest is"
+        "5": "The entity is added to what is behind it, so it glows, and black is invisible"
+    renderamt:
+      desc: "Sets how visible the entity is when its **Render Mode** isn't Normal, from 0 for invisible up to 255 for fully visible. For the modes Glow and Additive, it sets the brightness"
+    rendercolor:
+      desc: "Sets the color for the **Render Mode** Color, which draws the entity in this color, and for the **Render FX** Glow Shell. It also tints sprites"
+ModelScale:
+  keys:
+    scale:
+      desc: "Draws the model at this many times its size, so 0.5 is half size and 2 is twice the size. Its hitboxes and its solid and pick-up box grow or shrink with it, and so do the attack and follow distances of a monster. But a monster still walks with its normal-size box, as [Model scale](../features/model-scale.md) explains"
+      empty: "If you leave this key empty or set 1, the model has its normal size"
+Skin:
+  keys:
+    skin:
+      desc: "Sets which skin of the model shows, for models that have several skins, where 0 is the first"
+Scripted:
+  keys:
+    m_iszentity:
+      desc: "Names the monster that plays the script, as the **Name** of a monster or as a class name such as `monster_human_grunt`. A class name takes a free monster of that class within **Search Radius**. **Search target monster by...** sets which of the two the script tries"
+    m_flradius:
+      desc: "Sets how far from the script, in units, it looks for a monster when **Target Monster** is a class name. A monster found by its name can be anywhere, unless **Test against search radius** is \"Always\""
+      empty: "If you leave this key empty, it is 0 and a class name finds no monster. The **Entity to attack** of a [`scripted_action`](scripted_action.md) still searches 512 units"
+    m_fmoveto:
+      desc: "Sets how the monster gets to the script's position before it plays"
+      choices:
+        "0": "It plays where it stands"
+        "1": "It walks to the position"
+        "2": "It runs to the position"
+        "4": "The monster appears at the position, facing the script's angle, at the moment the script takes it"
+        "5": "It plays where it stands and turns to face as **Turn mode** says"
+        "7": "Like Instantaneous, but the monster appears at the position a moment later, when it starts the script, not when the script takes it"
+    m_iszfireonpossessed:
+      desc: "Fires when the script takes its monster, with the script as the activator"
+    m_iszfireonbegin:
+      desc: "With **Move to Position** \"Walk\" or \"Run\", fires when the monster reaches the mark and the script can start, with the script as the activator"
+    m_iszfireonanimstart:
+      desc: "Fires when the **Action Animation** starts, or for a `scripted_action` when the action starts, with the script as the activator"
+    master:
+      desc: "Names a [master](../guide/masters-and-states.md), and while the master is off, the script waits and looks again every second"
+    m_interruptionpolicy:
+      desc: "Sets what breaks the monster out of the script"
+      choices:
+        "0": "Any damage breaks it out"
+        "1": "Nothing breaks it out, as with the flag **No Interruptions**"
+        "2": "Only its death breaks it out"
+    m_takedamagepolicy:
+      desc: "Sets what damage does to the monster while the script holds it"
+      choices:
+        "0": "Damage hurts it as usual"
+        "1": "It can't be hurt during the script"
+        "2": "Damage hurts it but can't kill it"
+    m_searchpolicy:
+      desc: "Sets whether **Target Monster** is read as a name, a class name or both"
+    m_applysearchradius:
+      desc: "Sets when the **Search Radius** applies"
+      choices:
+        "0": "Only when the script looks for a monster by its class name"
+        "1": "Also for a monster found by its name, which then has to be within the **Search Radius** too"
+    required_state:
+      desc: "Sets the state a monster has to be in for the script to take it"
+    moveto_radius:
+      desc: "With **Move to Position** \"Walk\" or \"Run\", the monster stops this close to the mark and plays there"
+      empty: "If you leave this key empty or set 0, the monster walks onto the mark"
+    m_fturntype:
+      desc: "Sets how the monster turns before it plays, with **Move to Position** \"Walk\", \"Run\" or \"No - Turn to Face\". With \"Teleport\" or \"Instantaneous\", it takes the script's angle, and with \"No\", it doesn't turn"
+      choices:
+        "0": "It turns to the angle of the script"
+        "1": "It turns to face the script"
+        "2": "It doesn't turn"
+    m_ipriority:
+      desc: "Sets whether the script can take a monster that is playing another script"
+      choices:
+        "0": "It only takes a monster that plays no other script"
+        "4": "It also takes a monster that is playing another script"
+    m_irepeats:
+      desc: "Sets how many more times the **Action Animation**, or the action of a `scripted_action`, plays"
+Trigger:
+  keys:
+    message:
+      desc: "Sets a text that the player who sets off the trigger sees, as plain text or as the name of a message in `titles.txt`. It shows centered in the lower part of the screen, and monsters and pushables show nothing"
+  flags:
+    "1": "Monsters set the trigger off too"
+    "2": "Players don't set the trigger off"
+    "4": "[`func_pushable`](func_pushable.md) boxes set the trigger off too"
+TriggerState:
+  keys:
+    triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md#trigger-state) its **Target** gets when this entity fires it, and an entity without this key sends Off"
+ModelBase:
+  keys:
+    model:
+      desc: "Sets the model the entity shows"
+ZHLTCopyTarget:
+  keys:
+    zhlt_usemodel:
+      desc: "Names a brush entity whose brushes this entity uses as its own model"
+    zhlt_copylight:
+      desc: "Names an entity this entity copies its lighting from"
+    light_origin:
+      desc: "Names an entity, such as an [`info_target`](info_target.md), and the compiler lights this brush entity as if it stood there"
+ZHLT:
+  keys:
+    zhlt_noclip:
+      desc: "With Noclip, the map compiler builds the entity without the collision hulls of players and monsters, so they pass through it"
+    zhlt_lightflags:
+      desc: "Sets how the entity takes part in the lighting"
+      choices:
+        "1": "Only ZHLT reads this choice, and it lights faces that are inside other brushes. Other compilers treat it as Default"
+        "2": "The entity casts shadows like a wall"
+        "3": "The entity casts shadows like a wall. Only ZHLT also lights its faces that are inside other brushes, and other compilers treat it as Opaque"
+        "6": "The entity casts shadows like a wall. Only ZHLT also smooths the light on its curved faces, and other compilers treat it as Opaque"
+    zhlt_invisible:
+      desc: "With Invisible, the compiler leaves the faces of the entity out of the drawn map, but the entity stays solid"
+    zhlt_customshadow:
+      desc: "Sets how much light passes through the entity when its **ZHLT Lightflags** make it opaque, from 0 for none up to 1 for all of it. Use one number, or `R G B` for a tinted shadow"
+      empty: "If you leave this key empty, the entity blocks all the light"
+    zhlt_embedlightmap:
+      desc: "With Yes, the compiler bakes the light and the shadows into the texture of a see-through entity, so the entity is lit like the world and not drawn at full brightness"
+    zhlt_embedlightmapresolution:
+      desc: "With **ZHLT Embed Light Map**, sets how many texture pixels share one light sample: 1, 2, 4, 8 or 16. A lower value is sharper"
+    _minlight:
+      desc: "Sets the lowest light on the faces of the entity, from 0.0 for no limit up to 1.0 for fully lit"
+ZHLT_point:
+  keys:
+    _fade:
+      desc: "Sets how fast the light fades with distance, where 1 is normal"
+    _falloff:
+      desc: "Sets how the light fades with distance. Only ZHLT 3.4 reads this key, and VHLT, SDHLT, ReSDHLT and hltools ignore it"
+RenderFieldsUnset:
+  keys:
+    renderfx:
+      desc: "Sets an effect that the engine adds on top of the **Render Mode**"
+    rendermode:
+      desc: "Sets how the entity is drawn"
+    renderamt:
+      desc: "Sets how visible the entity is, from 1 up to 255"
+    rendercolor:
+      desc: "Sets the color for the **Render Mode** Color and the **Render FX** Glow Shell"
+PlatSounds:
+  keys:
+    movesnd:
+      desc: "Sets the sound it plays while it moves, and if you set **Custom move sound**, it ignores this key"
+    stopsnd:
+      desc: "Sets the sound it plays when it stops, and if you set **Custom stop sound**, it ignores this key"
+    volume:
+      desc: "Sets how loud the move and stop sounds are, from 0.0 for silent up to 1.0 for full volume"
+      empty: "If you leave this key empty or set 0, it is 0.85"
+    fireonstart:
+      desc: "Fires when it starts moving, in either direction"
+    fireonstart_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the **Fire On Start** targets get"
+    fireonstop:
+      desc: "Fires when it stops, at either end"
+    fireonstop_triggerstate:
+      desc: "Sets the use type that the **Fire On Stop** targets get"
+    soundradius:
+      desc: "Sets how far away players hear its move and stop sounds"
+      choices:
+        "-2": "Up to about 500 units away"
+        "-1": "Up to about 800 units away"
+        "0": "Up to about 1250 units away"
+        "1": "Up to about 2000 units away"
+        "2": "Up to about 4000 units away"
+        "3": "Anywhere on the map, at full volume"
+    custommovesnd:
+      desc: "Sets a sound file that plays while it moves, instead of **Move Sound**"
+    customstopsnd:
+      desc: "Sets a sound file that plays when it stops, instead of **Stop Sound**"
+Trackchange:
+  keys:
+    height:
+      desc: "Sets how far it travels down from its top position, in units, and with **Rotate Only**, it doesn't move"
+      empty: "If you leave this key empty or set 0, it is its own height minus 8"
+    rotation:
+      desc: "Sets how far it turns on its way between top and bottom, in degrees, around the vertical axis or the axis its flags set. 0 means it doesn't turn"
+    train:
+      desc: "Names the [`func_tracktrain`](func_tracktrain.md) it switches, and a train standing on it moves with it"
+    toptrack:
+      desc: "Names a [`path_track`](path_track.md) of the track at the top position. The point of that track nearest to the track change is only open to the train while the track change is at the top"
+    bottomtrack:
+      desc: "Names a `path_track` of the track at the bottom position. The point of that track nearest to the track change is only open to the train while the track change is at the bottom"
+    speed:
+      desc: "Sets how fast it moves, in units per second, or with **Rotate Only**, how fast it turns, in degrees per second"
+      empty: "If you leave this key empty or set 0, it is 150"
+    fireonopening:
+      desc: "Fires when it starts moving to its top position, the **Top track**"
+    fireonopening_triggerstate:
+      desc: "Sets the [use type](../guide/trigger-modes.md) that the **Fire On Open Start** targets get"
+    fireonclosing:
+      desc: "Fires when it starts moving to its bottom position, the **Bottom track**. It starts at the top, so its first trigger does this"
+    fireonclosing_triggerstate:
+      desc: "Sets the use type that the **Fire On Close Start** targets get"
+    fireonopened:
+      desc: "Fires when it reaches its top position"
+    fireonopened_triggerstate:
+      desc: "Sets the use type that the **Fire On Open End** targets get"
+    fireonclosed:
+      desc: "Fires when it reaches its bottom position"
+    fireonclosed_triggerstate:
+      desc: "Sets the use type that the **Fire On Close End** targets get"
+  flags:
+    "8": "It starts at its bottom position instead of the top"
+    "16": "It only turns in place and doesn't move up or down"
+    "64": "It turns around the X axis instead of the vertical axis"
+    "128": "It turns around the Y axis instead of the vertical axis"
+Recharger:
+  keys:
+    triggeronfirstuse:
+      desc: "Fires once, the first time the charger gives a player some charge"
+    triggeronempty:
+      desc: "Fires at the first use after the charger runs out, and only fires again after the charger has filled up again"
+    triggeronrecharged:
+      desc: "Fires when the charger fills up again"
+    customloopsound:
+      desc: "Sets a sound file that plays in a loop while the charger charges a player"
+      empty: "If you leave this key empty, it is `items/suitcharge1.wav`"
+    customdeniedsound:
+      desc: "Sets a sound file that plays when a player uses the charger while it is empty or while they have no suit"
+      empty: "If you leave this key empty, it is `items/suitchargeno1.wav`"
+    customstartsound:
+      desc: "Sets a sound file that plays when the charger starts charging a player"
+      empty: "If you leave this key empty, it is `items/suitchargeok1.wav`"
+    customrechargesound:
+      desc: "Sets a sound file that plays when the charger fills up again. By default, the suit charger plays no sound then"
+    customjuice:
+      desc: "Sets how much armor the charger holds"
+      empty: "If you leave this key empty or set 0, the skill setting decides"
+MoveWith:
+  keys:
+    movewith:
+      desc: "Names the parent, an entity that this one moves and turns with. The entity keeps the place and the angles it has on the parent in the editor. If several entities have the name, the first one counts. A name ending in `.1` to `.4` puts a sprite or a model that isn't solid on that attachment point of the model of the parent. A solid brush on a parent that turns needs its own origin brush. [Moving objects](../features/moving-objects.md) explains it all"
+      empty: "If you leave this key empty, the entity doesn't move with anything"
+    parentflags:
+      desc: "Keeps some of the entity's own position or angles instead of following the parent. Add up the values of the axes to keep: 2 for X, 4 for Y, 8 for Z, 16 for pitch, 32 for yaw and 64 for roll. So 112 keeps the entity level. 0 follows the parent on every axis"

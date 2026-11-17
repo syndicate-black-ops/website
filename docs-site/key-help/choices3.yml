@@ -1,0 +1,4 @@
+# Descriptions of key and flag rows without FGD help (scripts/gen_entity_docs.py). Read from the code on develop.
+Effects:
+  keys:
+    effects: "Sets an engine effect on the entity that every player sees, such as a light or a muzzle flash. **Nodraw** (128) hides the entity, but the entity stays solid."

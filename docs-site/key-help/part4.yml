@@ -1,0 +1,17 @@
+# Descriptions of key and flag rows without FGD help (scripts/gen_entity_docs.py). Read from the code on develop.
+func_rot_button:
+  keys:
+    locked_sound_override: "Sets a sound file that plays instead of **Locked Sound** while the master locks the button."
+    unlocked_sound_override: "Sets a sound file that plays instead of **Unlocked Sound** when the button is used."
+Global:
+  keys:
+    globalname: "Sets a name under which the game keeps the state of the entity in the global state table while the map runs. An entity with a global name that was removed, such as a broken func_breakable, stays removed for the rest of the map. Each map starts with an empty table, so the entity is back the next time the map is played."
+MomentaryDoor:
+  keys:
+    dmg: "No effect in SBO."
+monster_werewolf_hunter:
+  flags:
+    "32": "No effect in SBO."
+monstermaker:
+  flags:
+    "32768": "No effect in SBO."

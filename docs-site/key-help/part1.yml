@@ -1,0 +1,10 @@
+# Descriptions of key and flag rows without FGD help (scripts/gen_entity_docs.py). Read from the code on develop.
+Body:
+  keys:
+    body: "Sets which body group combination of the model shows, as a number, where 0 is the first."
+trigger_push:
+  keys:
+    message: "No effect in SBO."
+worldspawn:
+  keys:
+    light: "No effect in SBO."

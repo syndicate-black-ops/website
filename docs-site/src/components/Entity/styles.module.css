@@ -1,0 +1,42 @@
+.header { display: flex; align-items: center; gap: 1rem; margin: 0 0 1rem; }
+.icon { width: 80px; height: 80px; image-rendering: auto; border-radius: 8px; background: var(--wiki-panel); padding: 8px; border: 1px solid var(--wiki-line); }
+.meta { display: flex; flex-direction: column; gap: 0.25rem; }
+.kind { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--wiki-muted); font-weight: 600; }
+.portedLine { font-size: 0.9rem; color: var(--wiki-muted); display: inline-flex; align-items: center; gap: 0.35rem; }
+
+.ported { display: inline-flex; gap: 4px; margin-left: 6px; vertical-align: -0.15em; }
+.ported img { width: 16px; height: 16px; padding: 1px; border-radius: 3px; background: #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); }
+.portedText { font-size: 0.7rem; font-weight: 600; padding: 0 0.3em; border-radius: 3px; box-shadow: 0 0 0 1px var(--wiki-line); }
+.portedHead { margin-left: 10px; vertical-align: middle; position: relative; top: -0.08em; }
+.portedHead img { width: 20px; height: 20px; }
+h3 .portedHead img, h4 .portedHead img { width: 16px; height: 16px; }
+
+.kvTable { border: 1px solid var(--wiki-line); border-radius: 8px; overflow: hidden; margin: 0.5rem 0 1.5rem; }
+.kvHead, .kvRow { display: grid; grid-template-columns: minmax(10rem, 13rem) 1fr minmax(4rem, 7rem); gap: 0 1rem; padding: 0.6rem 0.9rem; }
+.kvHead { background: var(--wiki-panel); font-weight: 600; font-size: 0.85rem; color: var(--wiki-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.kvRow { border-top: 1px solid var(--wiki-line); }
+.kvRow:target, .kvRow:has(.anchor:target), .flag:target, .flag:has(.anchor:target) { background: var(--wiki-accent-tint); }
+.kvRow, .flag, .anchor { scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem); }
+.anchor { display: block; height: 0; }
+.kvKey { display: block; align-self: start; }
+.kvKey code { display: table; margin-top: 0.3rem; font-size: 0.8rem; }
+.kvDefault { align-self: start; }
+.kvDesc > :last-child { margin-bottom: 0; }
+.kvDesc ul { margin-bottom: 0.5rem; }
+.kvDefaultLabel { display: none; }
+
+.flags { display: flex; flex-direction: column; border: 1px solid var(--wiki-line); border-radius: 8px; overflow: hidden; margin: 0.5rem 0 1.5rem; }
+.flag { padding: 0.6rem 0.9rem; }
+.flag + .flag { border-top: 1px solid var(--wiki-line); }
+.flagHead { display: flex; align-items: center; gap: 0.6rem; }
+.flagValue { min-width: 2.6rem; text-align: center; }
+.flagDesc { margin: 0.25rem 0 0 3.2rem; }
+.flagDesc > :last-child { margin-bottom: 0; }
+
+@media (max-width: 700px) {
+  .kvHead { display: none; }
+  .kvHead, .kvRow { grid-template-columns: 1fr; }
+  .kvDefaultLabel { display: inline; color: var(--wiki-muted); }
+  .kvDesc { margin: 0.4rem 0; }
+  .flagDesc { margin-left: 0; }
+}

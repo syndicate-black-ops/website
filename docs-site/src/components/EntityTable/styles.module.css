@@ -1,0 +1,120 @@
+.entityTableContainer {
+  margin: 1rem 0;
+}
+
+/*
+  Every row has the same minimum height, so an entity without an icon takes as much room as one
+  with. The vertical padding is small so the height comes from the rule, not from the content.
+*/
+.table td {
+  height: 3.9rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  vertical-align: middle;
+}
+
+.resultsCount {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--wiki-muted);
+}
+
+.noResults {
+  padding: 2rem;
+  text-align: center;
+  color: var(--wiki-muted);
+  font-size: 1rem;
+}
+
+.description {
+  width: 25%;
+  overflow-wrap: anywhere;
+}
+
+/* four 32px icon slots with 8px gaps, plus the cell padding */
+.games {
+  width: 176px;
+}
+
+.gamesIcons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gameIcon,
+.gameSlot {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.gameIcon {
+  object-fit: contain;
+}
+
+.code {
+  padding: 0.2rem 0.4rem;
+  overflow-wrap: anywhere;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* the description column is dropped so the classname and game icons fit */
+@media (max-width: 700px) {
+  .description {
+    display: none;
+  }
+
+  .games {
+    width: 124px;
+  }
+
+  .gamesIcons {
+    gap: 4px;
+  }
+
+  .gameIcon,
+  .gameSlot {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.row:hover .entityLink {
+  color: var(--ifm-color-primary);
+}
+
+.table { display: table; width: 100%; }
+.description { width: auto; }
+.noIcon { display: inline-block; width: 42px; height: 42px; flex: none; }
+.typeSelect {
+  height: var(--wiki-control-height);
+  border-radius: var(--wiki-control-radius);
+  border: 1px solid var(--wiki-line);
+  background: var(--wiki-raised);
+  color: var(--wiki-text);
+  padding: 0 0.6rem;
+  font-size: var(--wiki-control-font-size);
+}
+@media (max-width: 700px) {
+  .description { display: table-cell; font-size: 0.85rem; }
+}
+
+.table td:first-child { width: 1%; min-width: 18.5rem; }
+@media (max-width: 600px) { .table td:first-child { min-width: 0; } }
+.table td:first-child .code { overflow-wrap: normal; white-space: normal; word-break: normal; }
+.table td:first-child img { flex: none; }
+.searchBox input { width: 100%; max-width: 32rem; }

@@ -1,0 +1,756 @@
+
+:root {
+  /* the selected game replaces this colour; the palette keeps only its hue */
+  --wiki-theme: #f7901e;
+  --wiki-bg: lch(from var(--wiki-theme) 98 1.5 h);
+  --wiki-panel: lch(from var(--wiki-theme) 95 2.5 h);
+  --wiki-raised: lch(from var(--wiki-theme) 90 4 h);
+  --wiki-raised-hover: lch(from var(--wiki-theme) 87 5 h);
+  --wiki-line: lch(from var(--wiki-theme) 84 5 h);
+  --wiki-text: lch(from var(--wiki-theme) 12 3 h);
+  --wiki-muted: lch(from var(--wiki-theme) 39 7 h);
+  --wiki-accent: lch(from var(--wiki-theme) 45 min(c, 62) h);
+  --wiki-accent-hover: lch(from var(--wiki-theme) 52 min(c, 68) h);
+  --wiki-accent-tint: lch(from var(--wiki-accent) l c h / 0.1);
+  --wiki-control-height: 2rem;
+  --wiki-control-radius: 6px;
+  --wiki-control-font-size: 0.875rem;
+  --wiki-info: #1f7fa8;
+  --wiki-tip: #2d6e2d;
+  --wiki-warning: #8f5400;
+  --wiki-danger: #b3342a;
+  --wiki-note: #7a7265;
+  --wiki-non-fgd: #8a4fa8;
+  --wiki-icon-filter: none;
+  --wiki-popup-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --wiki-code-background: var(--wiki-panel);
+  --wiki-code-text: var(--wiki-text);
+  --wiki-code-keyword: var(--wiki-accent);
+  --wiki-code-string: #4f7a28;
+  --wiki-code-function: #1f6f8a;
+  --wiki-code-number: #8a3f8a;
+  --wiki-code-comment: #80786a;
+
+  --ifm-background-color: var(--wiki-bg);
+  --ifm-background-surface-color: var(--wiki-panel);
+  --ifm-font-color-base: var(--wiki-text);
+  --ifm-heading-color: var(--wiki-text);
+  --ifm-color-primary: var(--wiki-accent);
+  --ifm-color-primary-dark: var(--wiki-accent-hover);
+  --ifm-color-primary-darker: var(--wiki-accent-hover);
+  --ifm-color-primary-darkest: var(--wiki-accent-hover);
+  --ifm-color-primary-light: var(--wiki-accent);
+  --ifm-color-primary-lighter: var(--wiki-accent);
+  --ifm-color-primary-lightest: var(--wiki-accent);
+  --ifm-link-color: var(--wiki-accent);
+  --ifm-link-hover-color: var(--wiki-accent-hover);
+  --ifm-color-emphasis-100: var(--wiki-panel);
+  --ifm-color-emphasis-200: var(--wiki-raised);
+  --ifm-color-emphasis-300: var(--wiki-line);
+  --ifm-color-emphasis-600: var(--wiki-muted);
+  --ifm-color-emphasis-700: var(--wiki-muted);
+  --ifm-color-emphasis-800: var(--wiki-text);
+  --ifm-toc-border-color: transparent;
+  --ifm-hr-background-color: var(--wiki-line);
+  --ifm-table-border-color: var(--wiki-line);
+  --ifm-table-stripe-background: transparent;
+  --ifm-table-head-background: var(--wiki-panel);
+  --ifm-navbar-background-color: color-mix(in srgb, var(--wiki-accent) 5%, var(--wiki-panel));
+  --ifm-navbar-shadow: none;
+  --ifm-scrollbar-track-background-color: transparent;
+  --ifm-scrollbar-thumb-background-color: var(--wiki-line);
+  --ifm-scrollbar-thumb-hover-background-color: var(--wiki-muted);
+  --ifm-menu-color: var(--wiki-text);
+  --ifm-menu-color-active: var(--wiki-accent);
+  --ifm-menu-color-background-active: var(--wiki-accent-tint);
+  --ifm-menu-color-background-hover: var(--wiki-raised);
+  --ifm-code-background: var(--wiki-raised);
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+  --ifm-global-shadow-tl: none;
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: var(--wiki-accent-tint);
+  --ifm-heading-font-family: 'Manrope', var(--ifm-font-family-base);
+  --ifm-heading-font-weight: 600;
+  --ifm-font-family-monospace: 'Cascadia Mono', Consolas, SFMono-Regular, 'Liberation Mono', monospace;
+}
+
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+}
+
+[data-theme='dark'] {
+  --wiki-bg: lch(from var(--wiki-theme) 9 1 h);
+  --wiki-panel: lch(from var(--wiki-theme) 12 1.5 h);
+  --wiki-raised: lch(from var(--wiki-theme) 17 2.5 h);
+  --wiki-raised-hover: lch(from var(--wiki-theme) 21 3 h);
+  --wiki-line: lch(from var(--wiki-theme) 23 3 h);
+  --wiki-text: lch(from var(--wiki-theme) 92 3 h);
+  --wiki-muted: lch(from var(--wiki-theme) 66 6 h);
+  --wiki-accent: lch(from var(--wiki-theme) 71 min(c, 72) h);
+  --wiki-accent-hover: lch(from var(--wiki-theme) 78 min(c, 50) h);
+  --wiki-accent-tint: lch(from var(--wiki-accent) l c h / 0.13);
+  --wiki-info: #4fb3dc;
+  --wiki-tip: #7fc46a;
+  --wiki-warning: #f7b02e;
+  --wiki-danger: #ef6a55;
+  --wiki-note: #a8a196;
+  --wiki-non-fgd: #c08fe0;
+  --wiki-icon-filter: invert(0.75);
+  --wiki-popup-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --wiki-code-background: lch(from var(--wiki-theme) 6 1 h);
+  --wiki-code-string: #b5c76a;
+  --wiki-code-function: #6fc3df;
+  --wiki-code-number: #d6a2e0;
+  --wiki-code-comment: #857c6e;
+
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%23a8a196" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+}
+
+/* the theme transitions every property on these */
+button.theme-back-to-top-button {
+  transition-property: opacity, transform, visibility;
+}
+
+.theme-code-block button svg {
+  transition-property: opacity, transform;
+}
+
+:focus-visible {
+  outline: 2px solid var(--wiki-accent);
+  outline-offset: 1px;
+}
+
+/* the navbar is tinted, so its controls need a stronger step to stand out from it */
+.navbar {
+  --wiki-raised: lch(from var(--wiki-theme) 85 6 h);
+  --wiki-raised-hover: lch(from var(--wiki-theme) 81 7 h);
+}
+
+[data-theme='dark'] .navbar {
+  --wiki-raised: lch(from var(--wiki-theme) 25 4 h);
+  --wiki-raised-hover: lch(from var(--wiki-theme) 30 5 h);
+}
+
+/* matches the game selector, the table search boxes reuse this class outside the navbar */
+input.navbar__search-input {
+  height: var(--wiki-control-height);
+  padding-left: 2.25rem;
+  border: 0;
+  border-radius: var(--wiki-control-radius);
+  background-color: var(--wiki-raised);
+  background-position: 0.625rem center;
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--wiki-control-font-size);
+  color: var(--wiki-text);
+  box-shadow: none;
+}
+
+input.navbar__search-input:hover {
+  background-color: var(--wiki-raised-hover);
+}
+
+input.navbar__search-input::placeholder {
+  color: var(--wiki-muted);
+  opacity: 1;
+}
+
+/* the navbar search class collapses to an icon on small screens, the table search boxes keep their full width */
+@media (max-width: 996px) {
+  main input.navbar__search-input,
+  main input.navbar__search-input:not(:focus) {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.navbar__search kbd {
+  border: 0;
+  background: var(--wiki-raised-hover);
+  box-shadow: none;
+  color: var(--wiki-muted);
+}
+
+aside.theme-doc-sidebar-container {
+  background: var(--wiki-panel);
+}
+
+/* browsers with scrollbar-color ignore the theme's ::-webkit-scrollbar rules */
+.thin-scrollbar {
+  scrollbar-color: var(--ifm-scrollbar-thumb-background-color) var(--ifm-scrollbar-track-background-color);
+}
+
+/* the 404 page's main is a short box, so its glow is drawn on the full-width wrapper instead */
+main:not(.container),
+.main-wrapper:has(> main.container) {
+  background: radial-gradient(60rem 22rem at 0% 0%, color-mix(in srgb, var(--wiki-accent) 9%, transparent), transparent 70%);
+}
+
+.main-wrapper > main.container {
+  text-align: center;
+}
+
+/* The "What's new" blog: laid out like a docs page, a full height sidebar panel on the left
+   and the glow behind the content. The blog puts its table of contents next to main instead
+   of inside it, so the glow is drawn on the row and starts where the sidebar ends.
+   Without the sidebar (phones) main is a narrow column, so the glow goes on the whole wrapper. */
+html.blog-wrapper .main-wrapper {
+  background: radial-gradient(60rem 22rem at 0% 0%, color-mix(in srgb, var(--wiki-accent) 9%, transparent), transparent 70%);
+}
+
+html.blog-wrapper .main-wrapper main {
+  background: none;
+}
+
+@media (min-width: 997px) {
+  html.blog-wrapper .main-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: none;
+  }
+
+  html.blog-wrapper .main-wrapper > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    padding: 0;
+  }
+
+  /* the container's margin-vert--lg is an !important utility that can't be overridden here,
+     so the row pulls itself back over it */
+  html.blog-wrapper .main-wrapper > .container > .row {
+    flex: 1;
+    flex-wrap: nowrap;
+    margin: -2rem 0;
+    background: radial-gradient(60rem 22rem at var(--doc-sidebar-width, 300px) 0%, color-mix(in srgb, var(--wiki-accent) 9%, transparent), transparent 70%);
+  }
+
+  html.blog-wrapper .main-wrapper > .container > .row > aside.col--3 {
+    flex: 0 0 var(--doc-sidebar-width, 300px);
+    max-width: var(--doc-sidebar-width, 300px);
+    padding: 0;
+    background: var(--wiki-panel);
+  }
+
+  html.blog-wrapper .main-wrapper > .container > .row > main {
+    flex: 1;
+    max-width: none;
+    /* the same inset as a doc page's 95% wide container */
+    padding: 1rem calc(2.5% + var(--ifm-spacing-horizontal)) 2rem;
+  }
+
+  html.blog-wrapper .main-wrapper > .container > .row > main ~ .col {
+    padding-top: 1rem;
+  }
+
+  html.blog-wrapper aside nav {
+    top: var(--ifm-navbar-height);
+    max-height: calc(100vh - var(--ifm-navbar-height));
+    padding: 0.5rem;
+  }
+}
+
+html.blog-wrapper aside [class*='sidebarItemTitle'] {
+  margin: 0.5rem 0.75rem 0.25rem !important;
+  font-family: var(--ifm-heading-font-family);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+html.blog-wrapper aside [class*='yearGroupHeading'] {
+  margin: 0.75rem 0.75rem 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--wiki-muted);
+}
+
+html.blog-wrapper aside [class*='sidebarItemList'] {
+  font-size: 0.9rem;
+}
+
+html.blog-wrapper aside [class*='sidebarItem_'] {
+  margin: 0;
+}
+
+html.blog-wrapper aside [class*='sidebarItemLink'] {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  color: var(--wiki-text);
+  line-height: 1.25;
+}
+
+html.blog-wrapper aside [class*='sidebarItemLink']:hover {
+  background: var(--wiki-raised);
+  text-decoration: none;
+}
+
+html.blog-wrapper aside [class*='sidebarItemLinkActive'] {
+  background: var(--wiki-accent-tint);
+  color: var(--wiki-accent) !important;
+}
+
+/* post titles in the list are links, keep them the heading colour like doc titles */
+html.blog-wrapper article header h2 a {
+  color: inherit;
+}
+
+html.blog-wrapper article header h2 a:hover {
+  color: var(--wiki-accent);
+  text-decoration: none;
+}
+
+/* Infima sizes only direct children of .markdown, so h2 nested in tabs would
+   otherwise fall back to the smaller root size */
+.markdown h2 {
+  --ifm-h2-font-size: 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  .markdown h2 {
+    --ifm-h2-font-size: 1.5rem;
+  }
+}
+
+.table-of-contents__link {
+  color: var(--wiki-muted);
+}
+
+.table-of-contents__link--active {
+  color: var(--wiki-accent);
+  font-weight: 600;
+}
+
+.breadcrumbs .breadcrumbs__link {
+  background: none;
+  color: var(--wiki-muted);
+}
+
+.breadcrumbs .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--wiki-accent);
+}
+
+.pagination-nav__link {
+  border: 0;
+  background: var(--wiki-panel);
+}
+
+.pagination-nav__link:hover {
+  background: var(--wiki-raised);
+}
+
+/* code in a table's first column is a key or name, shown in the accent colour without the code background */
+table td:first-child > code {
+  background: none;
+  color: var(--wiki-accent);
+}
+
+/* make pages take up more of the screen */
+.container {
+  max-width: none !important;
+  width: 95% !important;
+}
+
+.main-wrapper {
+  max-width: none !important;
+}
+
+.markdown table {
+  font-size: 0.9rem;
+  --ifm-table-cell-padding: 0.45rem 0.75rem;
+}
+
+.markdown table th {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+}
+
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+table th {
+  text-align: left;
+}
+
+table tbody tr:hover {
+  background: var(--wiki-panel);
+}
+
+.menu {
+  font-size: 0.9rem;
+}
+
+.theme-doc-sidebar-item-category-level-1:not(:first-child) {
+  margin-top: 0.375rem;
+}
+
+/* for groups like keyvalues in entity page, without this the default styling is a bit over the top */
+details {
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0.25rem 0 !important;
+  box-shadow: none !important;
+}
+
+details summary::before {
+
+  border-left: 6px solid currentColor;
+
+}
+
+details > summary {
+  padding-bottom: 0.25rem;
+}
+
+/* the separator stays as the content's top border so the bottom-up collapse
+   wipes it away last, but the default margin-top has to go: the height
+   animation measures scrollHeight, which excludes margins, so any margin here
+   makes the content overshoot the animated height and visibly jump */
+[class*="collapsibleContent"] {
+  border-top-color: var(--wiki-line) !important;
+  margin-top: 0 !important;
+  padding-top: 1rem !important;
+}
+
+/* constant open/close speed, the default duration scales with content height
+   so long keyvalue lists take ages to close (!important wins over the inline
+   transition the collapse animation sets) */
+@media not (prefers-reduced-motion: reduce) {
+  details > div {
+    transition-duration: 200ms !important;
+  }
+}
+
+/* callouts: one coloured bar and a tint of the same hue */
+.theme-admonition.alert {
+  --wiki-alert: var(--wiki-note);
+  --ifm-alert-background-color: color-mix(in srgb, var(--wiki-alert) 12%, transparent);
+  --ifm-alert-background-color-highlight: color-mix(in srgb, var(--wiki-alert) 18%, transparent);
+  --ifm-alert-border-color: var(--wiki-alert);
+  --ifm-alert-foreground-color: var(--wiki-text);
+  box-shadow: none;
+}
+
+.theme-admonition.alert--info {
+  --wiki-alert: var(--wiki-info);
+}
+
+.theme-admonition.alert--success,
+.theme-admonition.alert--todo {
+  --wiki-alert: var(--wiki-tip);
+}
+
+.theme-admonition.alert--warning {
+  --wiki-alert: var(--wiki-warning);
+}
+
+.theme-admonition.alert--danger,
+.theme-admonition.alert--bug,
+.theme-admonition.alert--legacy {
+  --wiki-alert: var(--wiki-danger);
+}
+
+.theme-admonition.alert--nonFGD {
+  --wiki-alert: var(--wiki-non-fgd);
+}
+
+.theme-admonition [class*='admonitionHeading'] {
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  color: var(--wiki-alert);
+}
+
+.theme-admonition [class*='admonitionIcon'] svg {
+  fill: var(--wiki-alert);
+}
+
+details.alert {
+  --ifm-code-background: var(--wiki-raised);
+}
+
+.legacy_item a::before {
+  color: var(--ifm-color-emphasis-600);
+  padding-right: 0.5rem;
+  content: '[LEGACY]';
+}
+
+.nonFGD_item a::before {
+  color: var(--ifm-color-emphasis-600);
+  padding-right: 0.5rem;
+  content: '[NON-FGD]';
+}
+
+/* only the item's own link, a stub category must not mark the pages inside it */
+.todo_item > .menu__link::before,
+.todo_item > .menu__list-item-collapsible > .menu__link::before {
+  color: var(--ifm-color-emphasis-600);
+  padding-right: 0.5rem;
+  content: '[TODO]';
+}
+
+@media screen and (max-width: 576px){
+  .navbar__title {
+    display: none;
+    
+  }
+
+  .navbar__brand {
+    margin-right: 0px;
+  }
+
+  .navbar__search-input {
+    max-width: 6rem;
+  }
+
+  /* hide placeholder on mobile */
+  .navbar__search-input::placeholder {
+    font-size: 0 !important;
+  }
+}
+
+kbd[class*="searchHint"] {
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 996px){
+  .navbar [class*="searchHintContainer"] {
+    display: none;
+  }
+}
+
+/* Discord icon */
+.discord-button {
+  padding: 0;
+  display: flex !important;
+  align-items: center;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.discord-button:hover {
+  color: var(--ifm-color-emphasis-600);
+  text-decoration: none;
+}
+
+.discord-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* GitHub icon */
+.github-button {
+  padding: 0;
+  display: flex !important;
+  align-items: center;
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.github-button:hover {
+  color: var(--ifm-color-emphasis-600);
+  text-decoration: none;
+}
+
+.github-icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* Latest release version, left of What's New: the same size, a little quieter, no external-link arrow; the mobile
+   menu shows it as a normal item */
+.navbar__item.release-link {
+  color: var(--ifm-color-emphasis-700);
+  font-weight: var(--ifm-font-weight-normal);
+}
+
+.navbar__item.release-link:hover {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.release-link svg {
+  display: none;
+}
+
+.navbar__items--right .release-link {
+  margin-right: 0;
+  padding-right: 4px;
+}
+
+/* Separators */
+.navbar__items--right .github-button::after,
+.navbar__items--right .whats-new-link::after,
+.navbar__items--right .custom-schema-explorer-link::after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 22px;
+  background-color: var(--ifm-color-emphasis-300);
+  margin-left: 18px;
+  vertical-align: middle;
+}
+
+.navbar__items--right .whats-new-link,
+.navbar__items--right .custom-schema-explorer-link {
+  margin-right: 0;
+  padding-right: 6px;
+}
+
+.navbar__items--right .discord-button {
+  margin-right: -8px;
+}
+
+/* Lightbox (docusaurus-plugin-image-zoom, medium-zoom): the dimmed page and the enlarged picture open over the fixed
+   navbar, which otherwise covers the top of a tall picture; medium-zoom's own styles set no z-index */
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: calc(var(--ifm-z-index-fixed) + 1);
+}
+
+/* Monster classes page (scripts/gen_monster_classes.py): each cell has a letter and a color (the legend names
+   them), so the grids fit the content width of a desktop page; on a narrow screen a grid scrolls sideways in its
+   own box, with the row names kept in view */
+:root {
+  --mc-nm-bg: #7a1712;
+  --mc-nm-fg: #ffffff;
+  --mc-ht-bg: #f4c7c0;
+  --mc-ht-fg: #6e140f;
+  --mc-dl-bg: #fbe3c4;
+  --mc-dl-fg: #613800;
+  --mc-fr-bg: #e2daf5;
+  --mc-fr-fg: #45297f;
+  --mc-al-bg: #cde8cd;
+  --mc-al-fg: #1d531d;
+  --mc-no-fg: var(--wiki-muted);
+}
+
+[data-theme='dark'] {
+  --mc-nm-bg: #b3342a;
+  --mc-nm-fg: #ffffff;
+  --mc-ht-bg: #5c211b;
+  --mc-ht-fg: #ffcbc4;
+  --mc-dl-bg: #4a3415;
+  --mc-dl-fg: #f6d39c;
+  --mc-fr-bg: #342a52;
+  --mc-fr-fg: #d9ccff;
+  --mc-al-bg: #1e3d21;
+  --mc-al-fg: #b9e4b1;
+}
+
+.monster-class-grid {
+  overflow-x: auto;
+  margin-bottom: var(--ifm-leading);
+  border: 1px solid var(--wiki-line);
+  border-radius: var(--wiki-control-radius);
+}
+
+.monster-class-grid table {
+  display: table;
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.monster-class-grid th,
+.monster-class-grid td {
+  padding: 0.25rem 0.2rem;
+  border: 1px solid var(--wiki-line);
+  text-align: center;
+}
+
+.monster-class-grid thead th {
+  vertical-align: bottom;
+  background: var(--wiki-panel);
+}
+
+.monster-class-grid thead th span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* the row names and the corner wrap */
+.monster-class-grid tbody th,
+.monster-class-grid .mc-corner {
+  white-space: normal;
+  min-width: 5.5rem;
+  line-height: 1.2;
+  padding-inline: 0.4rem;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  text-align: left;
+  background: var(--wiki-panel);
+  box-shadow: inset -1px 0 var(--wiki-line), -1px 0 0 var(--wiki-panel);
+}
+
+.monster-class-grid tbody tr:hover {
+  background: none;
+}
+
+.monster-class-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.monster-class-legend span {
+  padding: 0.1rem 0.45rem;
+  white-space: nowrap;
+  border: 1px solid var(--wiki-line);
+  border-radius: var(--wiki-control-radius);
+}
+
+.monster-class-legend .mc-nm { background: var(--mc-nm-bg); color: var(--mc-nm-fg); font-weight: 600; }
+.monster-class-legend .mc-ht { background: var(--mc-ht-bg); color: var(--mc-ht-fg); font-weight: 600; }
+.monster-class-legend .mc-dl { background: var(--mc-dl-bg); color: var(--mc-dl-fg); }
+.monster-class-legend .mc-fr { background: var(--mc-fr-bg); color: var(--mc-fr-fg); }
+.monster-class-legend .mc-al { background: var(--mc-al-bg); color: var(--mc-al-fg); }
+.monster-class-legend .mc-no { color: var(--mc-no-fg); }
+
+.monster-class-grid .mc-nm { background: var(--mc-nm-bg); color: var(--mc-nm-fg); font-weight: 600; }
+.monster-class-grid .mc-ht { background: var(--mc-ht-bg); color: var(--mc-ht-fg); font-weight: 600; }
+.monster-class-grid .mc-dl { background: var(--mc-dl-bg); color: var(--mc-dl-fg); }
+.monster-class-grid .mc-fr { background: var(--mc-fr-bg); color: var(--mc-fr-fg); }
+.monster-class-grid .mc-al { background: var(--mc-al-bg); color: var(--mc-al-fg); }
+.monster-class-grid .mc-no { color: var(--mc-no-fg); }
+
+/* the class list under the grid: entity names stay on one line */
+.monster-class-list td:nth-child(2) code {
+  white-space: nowrap;
+}
+
+/* the monster grid: entity pictures as column headers, picture and name as row headers */
+.monster-grid thead th img {
+  display: block;
+  margin: 0 auto;
+}
+
+.monster-grid .mc-who {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.monster-grid .mc-who img {
+  flex: none;
+}
+
+.monster-grid tbody th {
+  min-width: 9rem;
+}
+
+/* a light tile behind each picture, so dark models show on the dark theme too */
+.monster-grid img {
+  background: #e8e6e1;
+  border-radius: 4px;
+}

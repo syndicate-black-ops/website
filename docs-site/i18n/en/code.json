@@ -1,0 +1,6 @@
+{
+  "theme.docs.breadcrumbs.home": {
+    "message": "Welcome",
+    "description": "The label of the breadcrumbs' first item, the landing page"
+  }
+}

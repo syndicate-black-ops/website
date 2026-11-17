@@ -1,0 +1,14 @@
+# Build output: scripts/gen_entity_docs.py writes docs/mapping/entities/ (from entity-text/ and the FGD) and
+# docs/mapping/guide/monster-classes.md (from templates/monster-classes.md and src/dlls);
+# Docusaurus writes build/ and .docusaurus/ (.docusaurus-build/: a build next to the local docs server)
+.docusaurus-build/
+.docusaurus-static/
+docs/mapping/entities/
+docs/mapping/guide/monster-classes.md
+build/
+.docusaurus/
+.cache-loader/
+node_modules/
+.npm/
+# plugins/social-cards.mjs keeps the drawn link-preview cards here
+.social-cache/

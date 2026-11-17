@@ -1,0 +1,117 @@
+/* SBO look on top of Source2Wiki's theme (custom.css): the SBO green as the theme color, the dark colors and the
+   Inter font of the current docs site (docs-site/docs/assets/stylesheets/vitepress.css) */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-roman-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/inter-italic-latin.woff2") format("woff2");
+}
+
+:root {
+  --wiki-theme: #5fb04f;
+  --ifm-font-family-base: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ifm-heading-font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --ifm-font-family-monospace: ui-monospace, "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  --wiki-tip: #3f8f34;
+}
+
+[data-theme='dark'] {
+  --wiki-bg: #1b1b1f;
+  --wiki-panel: #202127;
+  --wiki-raised: #2b2c33;
+  --wiki-raised-hover: #32363f;
+  --wiki-line: #3c3f44;
+  --wiki-text: #dfdfd6;
+  --wiki-muted: #98989f;
+  --wiki-accent: #8bd47a;
+  --wiki-accent-hover: #a6e297;
+  --wiki-accent-tint: rgba(94, 178, 82, 0.16);
+  --wiki-code-background: #161618;
+  --wiki-info: #a8b1ff;
+  --wiki-tip: #8bd47a;
+  --wiki-warning: #f9b44e;
+  --wiki-danger: #f66f81;
+  --wiki-note: #98989f;
+  --ifm-navbar-background-color: #161618;
+}
+[data-theme='dark'] .navbar {
+  --wiki-raised: #2b2c33;
+  --wiki-raised-hover: #32363f;
+  border-bottom: 1px solid #2e2e32;
+}
+
+.navbar__logo img { image-rendering: auto; }
+.markdown h1 { font-weight: 700; }
+
+/* Keys the player presses (<kbd>): a small rounded keycap at text height */
+.markdown kbd {
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 0 0.4em;
+  border: 1px solid var(--wiki-line, #c2c2c4);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  box-shadow: none;
+  background-color: var(--wiki-raised, #f6f6f7);
+  color: var(--wiki-text, #3c3c43);
+  font-family: inherit;
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: 0.1em;
+  white-space: nowrap;
+}
+
+/* The "latest" / "upcoming" badge of the version line on the home page (src/components/Version) */
+.sbo-badge {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0 0.45em;
+  border-radius: 999px;
+  font-size: 0.72em;
+  font-weight: 600;
+  line-height: 1.6;
+  vertical-align: 0.1em;
+  color: #fff;
+  background: #2f7d32;
+}
+.sbo-badge--next { background: #8a6d1f; }
+
+/* Inline code in a table cell wraps, so a table with long names (hud_deathnotice_vgui, sprites/grass_01.spr) fits
+   the content width without a sideways scrollbar; code blocks keep scrolling */
+.markdown table td code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.markdown table td:first-child code { overflow-wrap: break-word; }
+
+/* Header icons (Discord, GitHub; src/css/custom.css): the label shows only in the phone menu */
+.navbar-icon-label { display: none; }
+.menu__list .discord-button,
+.menu__list .github-button { gap: 10px; padding: var(--ifm-menu-link-padding-vertical) var(--ifm-menu-link-padding-horizontal); }
+.menu__list .navbar-icon-label { display: inline; }
+.menu__list .github-button::after { display: none; }
+
+/* Markdown images (src/components/Img): each one on its own line, centered in the page column. A wide image keeps
+   max-width 100%, so it fills the column as before */
+.markdown-img {
+  display: flex;
+  justify-content: center;
+}
+
+/* An image's caption: the italic paragraph right under it, centered under the image */
+p:has(> .markdown-img) + p:has(> em:only-child) {
+  text-align: center;
+}

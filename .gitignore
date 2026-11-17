@@ -1,2 +1,6 @@
-site/
-.cache/
+# build output of the workflow (.github/workflows/pages.yml) and of a local build
+/site/
+/manual/
+/out/
+list-empty.txt
+__pycache__/

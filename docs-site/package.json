@@ -1,0 +1,52 @@
+{
+  "name": "sbo-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/plugin-content-blog": "3.10.2",
+    "@docusaurus/plugin-content-docs": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "0.55.3",
+    "@fontsource/inter": "5.2.8",
+    "@mdx-js/react": "3.1.1",
+    "@resvg/resvg-js": "2.6.2",
+    "clsx": "2.1.1",
+    "docusaurus-plugin-image-zoom": "3.0.1",
+    "js-yaml": "4.1.0",
+    "prism-react-renderer": "2.4.1",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "satori": "0.12.2",
+    "unist-util-visit": "5.1.0",
+    "upng-js": "2.1.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=22.0"
+  }
+}

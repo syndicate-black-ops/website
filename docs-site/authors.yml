@@ -1,0 +1,13 @@
+# Who the page history and the Contributors row show, by git author email.
+#
+# Every git author email of the docs' history must be listed here, or the build stops: no git name or email ever
+# reaches the site. An author with a GitHub username shows as that username with its GitHub avatar
+# (https://github.com/<username>.png). An author with "hidden: true" shows no name and no chip; their commits still
+# show in the page history, by date and title. An address that must not be published here (the website repository is
+# public) is written as "sha256:" + the sha256 of the address in lower case:
+#   python3 -c "import hashlib,sys; print('sha256:' + hashlib.sha256(sys.argv[1].lower().encode()).hexdigest())" <email>
+authors:
+  "sha256:8bd727671d7b190f4d2013e86a5d2970dedd42b9c81ae274fbc1413782bb2484":
+    github: MisterCalvin
+  48286342+MisterCalvin@users.noreply.github.com:
+    github: MisterCalvin

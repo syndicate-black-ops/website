@@ -1,0 +1,157 @@
+# Descriptions of key and flag rows without FGD help (scripts/gen_entity_docs.py). Read from the code on develop.
+game_player_settings:
+  keys:
+    weapon_ben:
+      desc: "Gives the player the Benelli, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_canon:
+      desc: "Gives the player the Canon of Terror, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_chaingun:
+      desc: "Gives the player the Vindico Avenger Minigun, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_chainsaw:
+      desc: "Gives the player the Chainsaw Sword, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it"
+    weapon_fa18:
+      desc: "Gives the player the Croon FA 18, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_federal:
+      desc: "Gives the player the Vindico Federal, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_glauncher:
+      desc: "Gives the player the Vindico Grenade Launcher, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_handgrenade:
+      desc: "Gives the player hand grenades, or takes them away"
+      choices:
+        "-1": "Takes them away"
+        "0": "Changes nothing"
+        "1": "Gives them if the player doesn't have them yet"
+        "2": "Always gives them, so a player who already has them gets more"
+    weapon_k444:
+      desc: "Gives the player the .444k Bear Killer, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_medikit:
+      desc: "Gives the player the Medikit, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it"
+    weapon_nm33:
+      desc: "Gives the player the Croon NM 33 Sniper Rifle, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_pm66:
+      desc: "Gives the player the Croon PM 66, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_rc28:
+      desc: "Gives the player the Croon RC 28, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_rpg:
+      desc: "Gives the player the Nuclear RPG, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_satchel:
+      desc: "Gives the player satchel charges, or takes them away"
+      choices:
+        "-1": "Takes them away"
+        "0": "Changes nothing"
+        "1": "Gives them if the player doesn't have them yet"
+        "2": "Always gives them, so a player who already has them gets more"
+    weapon_snark:
+      desc: "Gives the player Pitbulls, or takes them away"
+      choices:
+        "-1": "Takes them away"
+        "0": "Changes nothing"
+        "1": "Gives them if the player doesn't have them yet"
+        "2": "Always gives them, so a player who already has them gets more"
+    weapon_spa:
+      desc: "Gives the player the Saan Auto-Shotgun, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_sw:
+      desc: "Gives the player the Vindico Plasma Sniper Rifle, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it, so a player who already has it gets more ammo for it"
+    weapon_sword:
+      desc: "Gives the player the Energy Sword, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it"
+    weapon_tripmine:
+      desc: "Gives the player mines, or takes them away"
+      choices:
+        "-1": "Takes them away"
+        "0": "Changes nothing"
+        "1": "Gives them if the player doesn't have them yet"
+        "2": "Always gives them, so a player who already has them gets more"
+    weapon_warhammer:
+      desc: "Gives the player the Fusion Warhammer, or takes it away"
+      choices:
+        "-1": "Takes it away"
+        "0": "Changes nothing"
+        "1": "Gives it if the player doesn't have it yet"
+        "2": "Always gives it"
+    weapon_wong:
+      desc: "Gives the player Fists, or takes them away"
+      choices:
+        "-1": "Takes them away"
+        "0": "Changes nothing"
+        "1": "Gives them if the player doesn't have them yet"
+        "2": "Always gives them"

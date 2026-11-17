@@ -1,0 +1,504 @@
+# Provenance of the ported entities, keys, flags and features: the "Ported from" icons of the pages.
+# Read by scripts/gen_entity_docs.py (entity pages) and docs-site/docusaurus.config.ts (every page).
+#
+# projects:   <id>: name (the icon's tooltip), url (the icon's link), icon (a file in static/img/ported/;
+#             a project without an icon entry shows its name as a small text link)
+# entities:   <class>: <project id> or [<id>, <id>]
+# keys:       <class or base class>: { <key>: <project id or list> }
+# flags:      <class or base class>: { <flag value>: <project id or list> }
+#
+# A list gives one icon per project, in its order. A key or flag of a base class is marked on every entity page
+# that shows it (common base classes: on Common keys). SBO's own entities, keys and flags have no entry.
+# Hand-written pages write [[ported:<id> <id>]] where the icons go.
+#
+# Where each icon comes from (copied into the site, never loaded from the project's site):
+#   featureful.png   generated (Featureful has no logo; its documentation site uses the stock MkDocs favicon): a bold
+#                    white "F" (DejaVu Sans Bold) on a #1f5fa8 rounded square, drawn at 128 px with Pillow, scaled to 32
+#   sevenkewp.png    SevenKewp's client icon, https://wootguy.github.io/hlcoop_web/icon/client_sk.png (64x64, as is)
+#   halflife-updated.png  avatar of the twhl-community GitHub organization, which publishes halflife-updated
+#                    (https://avatars.githubusercontent.com/u/136572342), scaled to 32x32
+#   bugfixedhl.png   generated (BugfixedHL-Rebased has no logo): a bold white "B" (DejaVu Sans Bold) on a #b03a2e
+#                    rounded square, drawn at 128 px with Pillow, scaled to 32
+#   spirit.png       Spirit of Half-Life's game icon (Spirit/game.ico, Spirit of Half-Life 1.9 source)
+#   svencoop.png     favicon of www.svencoop.com
+#   regamedll.png    ReGameDLL_CS's icon (regamedll/msvc/icon.ico in its repository)
+#   cs16-client.png  cs16-client's logo (android/app/src/main/ic_launcher-playstore.png in its repository)
+#   czeror.png       Condition Zero Deleted Scenes' game icon (as Featureful's documentation ships it)
+#   aura.png         favicon of phoenixproject.cc (Aura's homepage on GitHub)
+#   xdm.png          XDM's game icon (common/res/xhl.ico in the XDM source)
+#   openag.png       favicon of openag.pro (OpenAG's homepage on GitHub)
+#   discord-rpc.png  Discord's icon as the discord-rpc repository ships it (examples/unrealstatus)
+
+projects:
+  featureful:
+    name: Featureful
+    url: https://github.com/FreeSlave/halflife-featureful
+    icon: featureful.png
+  spirit:
+    name: Spirit of Half-Life
+    url: https://github.com/LogicAndTrick/halflife-updated/tree/spirit/spirit-1.8-bug-fixes
+    icon: spirit.png
+  sevenkewp:
+    name: SevenKewp
+    url: https://github.com/wootguy/SevenKewp
+    icon: sevenkewp.png
+  svencoop:
+    name: Sven Co-op
+    url: https://www.svencoop.com/
+    icon: svencoop.png
+  cs:
+    name: ReGameDLL_CS
+    url: https://github.com/rehlds/ReGameDLL_CS
+    icon: regamedll.png
+  cs16client:
+    name: cs16-client
+    url: https://github.com/Velaron/cs16-client
+    icon: cs16-client.png
+  czeror:
+    name: CS:CZ Deleted Scenes SDK
+    url: https://github.com/twhl-community/czeror-sdk
+    icon: czeror.png
+  hlu:
+    name: halflife-updated
+    url: https://github.com/twhl-community/halflife-updated
+    icon: halflife-updated.png
+  hlunified:
+    name: Half-Life Unified SDK
+    url: https://github.com/twhl-community/halflife-unified-sdk
+    # the twhl-community organization's avatar, as for halflife-updated (same publisher)
+    icon: halflife-updated.png
+  aura:
+    name: Aura
+    url: https://github.com/phoenixprojectsoftware/Aura-CL
+    icon: aura.png
+  xdm:
+    name: XDM
+    url: https://www.moddb.com/mods/xdm
+    icon: xdm.png
+  bhl:
+    name: BugfixedHL-Rebased
+    url: https://github.com/tmp64/BugfixedHL-Rebased
+    icon: bugfixedhl.png
+  openag:
+    name: OpenAG
+    url: https://github.com/YaLTeR/OpenAG
+    icon: openag.png
+  discordrpc:
+    name: discord-rpc
+    url: https://github.com/discord/discord-rpc
+    icon: discord-rpc.png
+
+entities:
+  item_pickup: [featureful, sevenkewp]
+  player_inventory: featureful
+  player_hasinventory: featureful
+  env_rain: [cs, cs16client]
+  env_snow: [cs, cs16client]
+  env_fog: [cs, cs16client]
+  env_tutor: cs
+  env_particle: spirit
+  env_mirror: spirit
+  env_sky: spirit
+  game_messagebox: featureful
+  trigger_changevalue: [sevenkewp, svencoop]
+  trigger_copyvalue: [sevenkewp, svencoop]
+  trigger_condition: [sevenkewp, svencoop]
+  trigger_entity_iterator: [sevenkewp, svencoop]
+  ambient_music: [sevenkewp, svencoop]
+  global_light_control: [sevenkewp, svencoop]
+  trigger_sequence: czeror
+  trigger_random: [featureful, svencoop]
+  trigger_timer: featureful
+  calc_position: [featureful, spirit]
+  calc_ratio: [featureful, spirit]
+  calc_numfromvec: [featureful, spirit]
+  calc_vecfromnums: featureful
+  calc_subvelocity: [featureful, spirit]
+  calc_velocity_path: [featureful, spirit]
+  calc_velocity_polar: [featureful, spirit]
+  calc_eval_number: featureful
+  locus_variable: [featureful, spirit]
+  game_number: featureful
+  trigger_compare: featureful
+  env_state: [featureful, spirit]
+  calc_state: featureful
+  info_alias: spirit
+  multi_alias: spirit
+  trigger_changealias: spirit
+  info_group: spirit
+  multi_watcher: spirit
+  watcher_count: spirit
+  train_setspeed: spirit
+  trigger_inout: [featureful, spirit]
+  env_model: [featureful, spirit]
+  trigger_lightstyle: spirit
+  trigger_jump: featureful
+  trigger_safe_fall: featureful
+  trigger_sensor: featureful
+  game_playvideo: aura
+  func_vehicle: hlu
+  func_vehiclecontrols: hlu
+  func_rainvolume: [featureful, cs16client]
+  func_snowvolume: [featureful, cs16client]
+  env_warpball: [featureful, spirit]
+  env_shockwave: [featureful, spirit]
+  env_beamtrail: [featureful, spirit]
+  env_quakefx: [featureful, spirit]
+  env_decal: [featureful, spirit]
+  env_dlight: [featureful, spirit]
+  env_elight: spirit
+  locus_beam: [featureful, spirit]
+  env_spritetrain: featureful
+  env_modeltrain: featureful
+  func_breakable_effect: featureful
+  func_illusionary_toggle: featureful
+  player_capabilities: featureful
+  player_speed: featureful
+  player_hasweapon: featureful
+  player_flicker: featureful
+  player_calc_ratio: featureful
+  game_player_settings: featureful
+  trigger_vehiclecontrols: featureful
+  ambient_random: featureful
+  ambient_extraspeaker: featureful
+  env_soundmark: featureful
+  monster_target: [featureful, spirit]
+  scripted_action: [featureful, spirit]
+  scripted_tanksequence: [featureful, spirit]
+  trigger_startpatrol: [featureful, spirit]
+  scripted_schedule: featureful
+  scripted_following: featureful
+  motion_manager: [featureful, spirit]
+  trigger_motion: [featureful, spirit]
+  trigger_random_unique: [featureful, svencoop]
+  trigger_playerfreeze: featureful
+  trigger_killmonster: featureful
+  trigger_hurt_remote: featureful
+  trigger_look: featureful
+
+keys:
+  MoveWith:
+    movewith: spirit
+  env_rain:
+    intensity: featureful
+    update_period: featureful
+    raindrop_width: featureful
+    raindrop_height: featureful
+    raindrop_min_speed: featureful
+    raindrop_max_speed: featureful
+    raindrop_life: featureful
+    wind_x: spirit
+    wind_y: spirit
+    wind_rand_x: spirit
+    wind_rand_y: spirit
+  env_snow:
+    intensity: featureful
+    update_period: featureful
+    snowflake_min_size: featureful
+    snowflake_max_size: featureful
+    snowflake_min_speed: featureful
+    snowflake_max_speed: featureful
+    snowflake_life: featureful
+    wind_x: spirit
+    wind_y: spirit
+    wind_rand_x: spirit
+    wind_rand_y: spirit
+  func_rainvolume:
+    wind_x: spirit
+    wind_y: spirit
+    wind_rand_x: spirit
+    wind_rand_y: spirit
+  func_snowvolume:
+    wind_x: spirit
+    wind_y: spirit
+    wind_rand_x: spirit
+    wind_rand_y: spirit
+  ModelScale:
+    scale: spirit
+  CustomObjectHint:
+    objecthint: featureful
+  Door:
+    m_iObeyTriggerMode: [featureful, svencoop]
+    fireonstart: featureful
+    fireonstart_triggerstate: featureful
+    fireonstop: featureful
+    fireonstop_triggerstate: featureful
+    fireonopening: featureful
+    fireonopening_triggerstate: featureful
+    fireonclosing: featureful
+    fireonclosing_triggerstate: featureful
+    fireonopened: featureful
+    fireonopened_triggerstate: featureful
+    fireonclosed: featureful
+    fireonclosed_triggerstate: featureful
+    return_speed: featureful
+    directuse: featureful
+    locked_play_on_use: featureful
+  DoorSounds:
+    noise1: featureful
+    noise2: featureful
+    noise3: featureful
+    returnstopsnd: featureful
+    soundradius: featureful
+  DoorBlockers:
+    ignore_corpses: featureful
+    instant_gib_corpses: featureful
+    blocker_recheck: featureful
+  func_rotating:
+    m_iObeyTriggerMode: [featureful, svencoop]
+  func_train:
+    m_iObeyTriggerMode: [featureful, svencoop]
+    soundpitch: featureful
+  func_tracktrain:
+    soundradius: featureful
+    custommovesnd: featureful
+    customstopsnd: featureful
+  trigger_hurt:
+    m_iObeyTriggerMode: [featureful, svencoop]
+    untouchable_ent_name: featureful
+    min_health: featureful
+    gib_policy: featureful
+  env_shake:
+    message: featureful
+  trigger_push:
+    m_iObeyTriggerMode: [featureful, svencoop]
+    m_iszPushSpeed: [featureful, spirit]
+    m_iszPushVel: [featureful, spirit]
+  trigger_teleport:
+    message: spirit
+  trigger_relay:
+    m_flDelayBeforeReset: [featureful, svencoop]
+    master: hlunified
+  MonsterUnkillable:
+    unkillable: hlunified
+  LockedSounds:
+    locked_sound_override: [hlunified, featureful]
+    unlocked_sound_override: [hlunified, featureful]
+    locked_sentence_override: [hlunified, featureful]
+    unlocked_sentence_override: [hlunified, featureful]
+  MomentaryDoor:
+    noise1: hlunified
+    noise2: hlunified
+  func_conveyor:
+    useset_policy: featureful
+  func_tank:
+    bullet_gib_policy: featureful
+  BaseTank:
+    player_weapon_volume: featureful
+    firemaster: featureful
+    bulletCount: featureful
+    m_iClass: featureful
+    extra_barrels: featureful
+    m_iszLocusFire: [featureful, spirit]
+    smokerendermode: featureful
+  func_pushable:
+    toggleable_push: featureful
+  PlatSounds:
+    fireonstart: featureful
+    fireonstart_triggerstate: featureful
+    fireonstop: featureful
+    fireonstop_triggerstate: featureful
+    soundradius: featureful
+    custommovesnd: featureful
+    customstopsnd: featureful
+  func_plat:
+    fireonopening: featureful
+    fireonopening_triggerstate: featureful
+    fireonclosing: featureful
+    fireonclosing_triggerstate: featureful
+    fireonopened: featureful
+    fireonopened_triggerstate: featureful
+    fireonclosed: featureful
+    fireonclosed_triggerstate: featureful
+  func_platrot:
+    fireonopening: featureful
+    fireonopening_triggerstate: featureful
+    fireonclosing: featureful
+    fireonclosing_triggerstate: featureful
+    fireonopened: featureful
+    fireonopened_triggerstate: featureful
+    fireonclosed: featureful
+    fireonclosed_triggerstate: featureful
+  func_button:
+    noise: hlunified
+    trigger_before_move: featureful
+    trigger_on_return: featureful
+    target_on_locked: featureful
+    usetype: featureful
+    wait_toggle: featureful
+    directuse: featureful
+  func_rot_button:
+    noise: hlunified
+    trigger_before_move: featureful
+    trigger_on_return: featureful
+    target_on_locked: featureful
+    usetype: featureful
+    wait_toggle: featureful
+    directuse: featureful
+  momentary_rot_button:
+    noise: hlunified
+  trigger_camera:
+    turnspeed: featureful
+    stop_by_player_input: featureful
+    m_iszTurnedOffTarget: featureful
+  func_vehicle:
+    reverse_speed: featureful
+    deceleration: featureful
+    stop_sound_at_halt: featureful
+    brake_sound: featureful
+    ignition_sound: featureful
+    touch_proxy_name: featureful
+  env_render:
+    message: [featureful, spirit]
+    m_fScale: [featureful, spirit]
+    frags: [featureful, spirit]
+    netname: [featureful, spirit]
+  env_global:
+    initialvalue: featureful
+  Breakable:
+    m_iGibs: featureful
+    gibscale: featureful
+    whenhit: [featureful, spirit]
+    target_activator: featureful
+    spark_when_hit: featureful
+    switch_texture_when_damaged: featureful
+  env_sprite:
+    message: featureful
+    frags: featureful
+    impulse: featureful
+  env_spark:
+    spark_silent: featureful
+    spark_volume: featureful
+    soundradius: featureful
+  env_funnel:
+    message: featureful
+    netname: featureful
+  env_laser:
+    StartSprite: featureful
+  env_explosion:
+    target: [featureful, spirit]
+    iradius: featureful
+    model: featureful
+    smokesprite: featureful
+    scale: featureful
+  GibshooterBase:
+    m_iszPosition: [featureful, spirit]
+    m_iszVelocity: [featureful, spirit]
+  monstermaker:
+    spawnorigin: featureful
+    face_position: featureful
+    warpball: featureful
+    impulse: featureful
+    spawndelay: featureful
+  env_bubbles:
+    bubble_model: featureful
+  env_blood:
+    target: featureful
+    netname: featureful
+  ambient_generic:
+    playmode: [sevenkewp, svencoop]
+    linearmin: [sevenkewp, svencoop]
+    linearmax: [sevenkewp, svencoop]
+  worldspawn:
+    materials_file: [sevenkewp, svencoop]
+    grassDensity: czeror
+    grassSprite: czeror
+    grassFadeDist: czeror
+    grassMinHeight: czeror
+    grassMaxHeight: czeror
+
+flags:
+  env_rain:
+    1: featureful
+    2: featureful
+    4: featureful
+    32: featureful
+    64: featureful
+    128: featureful
+    256: featureful
+    512: featureful
+  env_snow:
+    1: featureful
+    2: featureful
+    4: featureful
+    256: featureful
+    512: featureful
+  trigger_multiple:
+    8: featureful
+  trigger_once:
+    8: featureful
+  trigger_push:
+    8: featureful
+    16: featureful
+  trigger_hurt:
+    64: featureful
+    128: featureful
+    256: featureful
+    512: featureful
+  trigger_teleport:
+    64: featureful
+    128: [featureful, svencoop]
+    256: [featureful, svencoop]
+    512: [featureful, svencoop]
+  info_teleport_destination:
+    32: featureful
+  game_counter:
+    4: featureful
+  multi_manager:
+    8: featureful
+    1024: featureful
+  trigger_relay:
+    64: [featureful, svencoop]
+    128: featureful
+  env_fade:
+    8: featureful
+  func_button:
+    16384: featureful
+  ItemPickupFlags:
+    128: featureful
+    256: featureful
+  func_train:
+    64: featureful
+  BaseTank:
+    64: [featureful, spirit]
+    128: [featureful, spirit]
+    256: featureful
+  func_rot_button:
+    16384: featureful
+  func_pushable:
+    16: [featureful, spirit]
+  func_breakable:
+    16: [featureful, spirit]
+    4096: featureful
+    8192: featureful
+    16384: featureful
+  env_sprite:
+    8: featureful
+  env_spark:
+    16: featureful
+  env_funnel:
+    2: featureful
+  env_laser:
+    4096: featureful
+  env_explosion:
+    64: featureful
+    128: featureful
+  env_beam:
+    512: featureful
+    1024: featureful
+    4096: featureful
+  env_render:
+    32: [featureful, spirit]
+    64: [featureful, spirit]
+  env_global:
+    4: [featureful, spirit]
+  trigger_camera:
+    64: featureful
+    256: featureful
+    512: featureful
+    1024: featureful
+    4096: featureful
+    8192: featureful
+    16384: featureful
+    32768: featureful
+    65536: featureful
