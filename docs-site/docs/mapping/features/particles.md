@@ -7,7 +7,14 @@ description: "Particles give your map steam, sparks, fire, smoke and other effec
 Particles give your map steam, sparks, fire, smoke and other effects that move and change over time. An
 [`env_particle`](../entities/env_particle.md) plays an Aurora particle script, a small text file in the `.aur` format
 of Spirit of Half-Life, XashXT and PrimeXT. The scripts of those mods play in SBO next to the scripts that come with
-the game, and you can make your own in-game with the [particle editor](#making-an-effect-in-the-game).
+the game, and you can make your own in-game with the [particle editor](#making-an-effect-in-the-game), or in your
+browser with the [Aurora web editor](https://syndicate-black-ops.github.io/aurora-editor/).
+
+:::warning[Alpha]
+
+The Aurora web editor is in alpha. It works, but it will change in the future.
+
+:::
 
 The Aurora hall of `co_sbo_showcase` has eight effects side by side.
 
